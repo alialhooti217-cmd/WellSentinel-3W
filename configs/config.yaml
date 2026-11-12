@@ -1,0 +1,47 @@
+# WellSentinel-3W — main configuration
+# All paths are relative to the project root.
+
+paths:
+  dataset_dir: data/raw/3W/dataset
+  interim_dir: data/interim
+  processed_dir: data/processed
+  models_dir: models
+  reports_dir: reports
+  figures_dir: reports/figures
+
+# Sliding windows over the 1 Hz sensor streams
+windows:
+  size_s: 900            # 15-minute window
+  step_s: 300            # new window every 5 minutes
+  min_valid_fraction: 0.5  # skip windows where < 50% of rows have a label
+  label_tail_s: 60       # window label = last label seen in the final 60 s
+
+features:
+  # Statistics computed per sensor per window
+  stats: [mean, std, min, max, last, slope]
+  # Sensors missing in more than this share of ALL rows are dropped
+  drop_vars_missing_above: 0.95
+
+split:
+  n_folds: 5             # wells are grouped -> no well appears in train AND test
+  test_fold: 1           # fold 1 covers 9 of 10 classes incl. Normal (see 01_build_inventory output)
+  include_simulated_in_train: true
+  include_drawn_in_train: true
+  seed: 42
+
+model:
+  type: hist_gb          # HistGradientBoosting (handles NaN natively)
+  params:
+    max_iter: 300
+    learning_rate: 0.08
+    max_leaf_nodes: 31
+    l2_regularization: 0.1
+    class_weight: balanced
+    random_state: 42
+
+alarm:
+  threshold: 0.5         # P(abnormal) needed to raise an alarm
+  persistence: 2         # consecutive windows above threshold (alarm-flood control)
+
+runtime:
+  n_jobs: -1             # parallel feature extraction (-1 = all cores)

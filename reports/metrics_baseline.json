@@ -1,0 +1,162 @@
+{
+  "test_fold": 1,
+  "n_features": 132,
+  "window": {
+    "macro_f1": 0.2906448010988995,
+    "balanced_accuracy": 0.4187706815751913,
+    "labels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "confusion_matrix": [
+      [
+        5702,
+        5,
+        346,
+        1,
+        105,
+        0,
+        0,
+        960,
+        103,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        62,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1709,
+        0,
+        3,
+        0,
+        0,
+        73,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        463,
+        0,
+        0,
+        0,
+        945,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        467,
+        0,
+        431,
+        0,
+        124,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        4977,
+        0,
+        1388,
+        0,
+        0,
+        0,
+        0,
+        6138,
+        0,
+        0
+      ],
+      [
+        277,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1255,
+        0
+      ],
+      [
+        259,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        12
+      ]
+    ]
+  },
+  "per_class_f1": {
+    "Normal Operation": 0.5410380491507734,
+    "Abrupt Increase of BSW": 0.0,
+    "Spurious Closure of DHSV": 0.05403050108932462,
+    "Severe Slugging": 0.0,
+    "Flow Instability": 0.731990704879938,
+    "Rapid Productivity Loss": 0.0,
+    "Quick Restriction in PCK": 0.0,
+    "Scaling in PCK": 0.6260709914320686,
+    "Hydrate in Production Line": 0.8685121107266436,
+    "Hydrate in Service Line": 0.08480565371024736
+  },
+  "event": {
+    "n_event_instances": 136,
+    "detection_rate": 0.6544117647058824,
+    "median_delay_min": 5.0,
+    "early_warning_rate": 0.25735294117647056,
+    "false_alarms": 145,
+    "false_alarms_per_well_day": 5.782331764054279
+  }
+}

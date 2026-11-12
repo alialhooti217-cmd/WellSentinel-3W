@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Data & artefacts (large — re-create with the scripts)
+data/raw/
+data/interim/
+data/processed/
+models/*.joblib
+reports/predictions_test.parquet
+*.part
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
