@@ -36,7 +36,9 @@ wells **early**, **explainably** and on **unseen wells**, then shares it (GitHub
 - [x] Package `wellsentinel` (data, features, split, models, evaluate, explain)
 - [x] Pipeline scripts 00–03 + Streamlit dashboard + unit tests
 - [ ] Run `setup_env.ps1` on your machine
-- [ ] `git init` → first commit → push to GitHub (public repo)
+- [x] `git init` → first commit → push to GitHub (https://github.com/alialhooti217-cmd/WellSentinel-3W)
+- [x] CI (GitHub Actions: pytest) + showcase README + `docs/LAUNCH_KIT.md`
+- [ ] Make the repo public + add About/topics + LICENSE
 
 ### 🔎 Phase 1: Understand the data (Week 1)
 - [ ] Run `01_build_inventory.py` and read the class × type table
