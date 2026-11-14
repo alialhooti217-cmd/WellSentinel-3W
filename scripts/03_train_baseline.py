@@ -21,6 +21,7 @@ import pandas as pd
 from sklearn.metrics import ConfusionMatrixDisplay
 
 from wellsentinel.config import load_config
+from wellsentinel.io import write_json
 from wellsentinel.data import EVENT_NAMES
 from wellsentinel.evaluate import event_metrics, window_metrics
 from wellsentinel.features import select_feature_columns
@@ -70,8 +71,7 @@ def main() -> None:
                "window": {k: wm[k] for k in ("macro_f1", "balanced_accuracy", "labels", "confusion_matrix")},
                "per_class_f1": {k: v["f1-score"] for k, v in wm["report"].items() if k in EVENT_NAMES.values()},
                "event": em["summary"]}
-    with open(P["reports_dir"] / "metrics_baseline.json", "w", encoding="utf-8") as f:
-        json.dump(metrics, f, indent=2, default=float)
+    write_json(metrics, P["reports_dir"] / "metrics_baseline.json")
 
     labels = wm["labels"]
     fig, ax = plt.subplots(figsize=(9, 8))

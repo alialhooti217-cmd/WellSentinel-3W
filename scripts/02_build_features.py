@@ -1,6 +1,6 @@
 """Step 2 — turn raw 1 Hz streams into a window-level feature table.
 
-Output: data/processed/features.parquet
+Output: data/processed/features.parquet  (features_physics.parquet when config features.physics is true)
 Use --limit N for a quick test on N instances per event folder.
 """
 import _bootstrap  # noqa: F401
@@ -28,7 +28,8 @@ def main() -> None:
 
     t0 = time.time()
     table = build_feature_table(inv, cfg)
-    name = "features.parquet" if not args.limit else f"features_limit{args.limit}.parquet"
+    stem = "features_physics" if cfg["features"].get("physics") else "features"
+    name = f"{stem}.parquet" if not args.limit else f"{stem}_limit{args.limit}.parquet"
     out = cfg["paths"]["processed_dir"] / name
     table.to_parquet(out, index=False)
 

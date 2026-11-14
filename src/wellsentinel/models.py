@@ -29,9 +29,12 @@ def build_model(cfg: dict):
 
 def save_bundle(model, feature_cols: list[str], cfg: dict, path: str | Path) -> None:
     """Save the model together with everything needed to use it later."""
+    from .features import physics_config
+    uses_physics = any(c.split("__")[0].startswith(("PHY-", "OSC-", "DRIFT")) for c in feature_cols)
     joblib.dump(
         {"model": model, "feature_cols": feature_cols, "windows": cfg["windows"],
-         "stats": cfg["features"]["stats"], "alarm": cfg["alarm"]},
+         "stats": cfg["features"]["stats"], "alarm": cfg["alarm"],
+         "physics": physics_config(cfg["features"]) if uses_physics else None},
         path,
     )
 

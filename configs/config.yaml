@@ -21,6 +21,19 @@ features:
   stats: [mean, std, min, max, last, slope]
   # Sensors missing in more than this share of ALL rows are dropped
   drop_vars_missing_above: 0.95
+  # Physics-inspired features (ΔP across chokes / tubing / flowline, oscillation spectrum, drift).
+  # true -> 02_build_features.py writes data/processed/features_physics.parquet (baseline file untouched)
+  physics: true
+  physics_params:
+    osc_sensors: [P-TPT, P-MON-CKP, P-PDG]
+    context_s: 7200          # trailing history for the FFT (120 min > longest period in band)
+    min_context_s: 1800      # NaN with less than 30 min of valid history
+    resample_s: 10
+    band_period_min: [2, 60] # slugging / flow-instability periods
+    drift_sensors: [P-PDG, P-TPT, P-MON-CKP, P-ANULAR]
+    baseline_s: 3600         # DRIFT0: vs first 60 min of the instance (expanding before that)
+    rolling_lag_s: [10800, 3600]  # DRIFTR: vs mean over [t-3h, t-1h] (deployable on a live well)
+    min_baseline_s: 600
 
 split:
   n_folds: 5             # wells are grouped -> no well appears in train AND test
