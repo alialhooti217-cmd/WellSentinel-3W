@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "success": "class 'Hydrate in Production Line' has the highest strict detection rate (64%, n=14); instance with median delay among 9 detected",
+    "failure": "class 'Flow Instability' has the most missed instances (189 of 343); instance with median peak P(abnormal) among 189 missed"
+  },
+  "success": {
+    "instance": "8/WELL-00028_20210617053128",
+    "event": "Hydrate in Production Line",
+    "fold": 3,
+    "sensors_plotted": [
+      "T-MON-CKP",
+      "QGL"
+    ],
+    "event_onset": "2021-06-17 18:39:18",
+    "first_alarm_after_onset": "2021-06-17 18:46:27",
+    "steady_state": "2021-06-20 22:20:03",
+    "delay_min": 5.0,
+    "early_warning": true,
+    "peak_p_abnormal": 0.9999277602516129
+  },
+  "failure": {
+    "instance": "4/WELL-00002_20140121230117",
+    "event": "Flow Instability",
+    "fold": 4,
+    "sensors_plotted": [
+      "P-TPT",
+      "T-TPT"
+    ],
+    "event_onset": "2014-01-22 00:01:17",
+    "first_alarm_after_onset": null,
+    "steady_state": "2014-01-22 00:01:17",
+    "delay_min": null,
+    "early_warning": false,
+    "peak_p_abnormal": 0.12480101848633951
+  }
+}
