@@ -1,0 +1,8 @@
+{
+  "instance": "8/WELL-00031_20140403170404",
+  "event_onset": "2014-04-04 01:16:46",
+  "first_alarm": "2014-04-04 01:24:03",
+  "steady_state": "2014-04-07 20:59:26",
+  "alarm_after_onset_min": 7.283333333333333,
+  "alarm_before_steady_state_h": 91.58972222222222
+}
