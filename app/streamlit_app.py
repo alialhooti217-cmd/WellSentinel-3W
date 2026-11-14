@@ -44,7 +44,7 @@ def score_instance(path: str):
     b = get_bundle()
     raw = load_instance(path)
     w = instance_windows(raw, b["windows"]["size_s"], b["windows"]["step_s"], b["stats"],
-                         require_label=False)
+                         require_label=False, physics=b.get("physics"))
     proba = b["model"].predict_proba(w[b["feature_cols"]])
     classes = list(b["model"].classes_)
     w["pred"] = np.asarray(classes)[proba.argmax(axis=1)]

@@ -49,26 +49,41 @@ WellSentinel asks the **operator's question** instead:
 
 ## 📈 Results: v0.1 baseline (honest, unseen wells)
 
-Test set: **fold 1, 9 wells never seen in training**, 136 real event instances.
+**5-fold cross-validation grouped by well** (40 real wells; every fold's test wells are never seen in training;
+simulated and hand-drawn instances are used for training only). 481 real event instances in total.
 
-| KPI | Baseline (E00) | Target |
+| KPI (unseen wells, 5-fold grouped CV) | v0.1 baseline (E02) | Target |
 |---|---|---|
-| Macro-F1 (10 classes, per window) | **0.29** | ≥ 0.70 |
-| Event detection rate | **65.4 %** | ≥ 90 % |
-| Early-warning rate (caught during the transient) | **25.7 %** | ≥ 60 % |
-| Median detection delay | **5 min** | ≤ 15 min |
-| False alarms per well-day | **5.8** | ≤ 1 |
+| Macro-F1 (per window, classes present in each fold) | **0.32 ± 0.17** (folds: 0.10 – 0.56) | ≥ 0.70 |
+| Balanced accuracy | **0.36 ± 0.14** | |
+| Event detection rate (alarm off at onset, then raised) | **41 %** | ≥ 90 % |
+| Early-warning rate (raised while the event is still developing) | **6 %** | ≥ 60 % |
+| Median detection delay (detected events) | **5 min** | ≤ 15 min |
+| False alarms per well-day | **3.0** | ≤ 1 |
 
-<p align="center"><img src="reports/figures/confusion_matrix.png" width="620" alt="Confusion matrix on unseen wells"></p>
+**The leakage gap, measured fairly.** Same windows, features and model, with only the split changed. A random
+window-level 5-fold CV scores **0.98 ± 0.01** macro-F1, **3.1× higher** than unseen wells (2.7× on balanced
+accuracy).
 
-**What the baseline already learns well:** hydrate in production line (F1 0.87), flow instability (0.73),
-scaling in PCK (0.63).
-**What it doesn't learn yet, and why that's useful to know:** severe slugging is mostly called *Normal*. A 15-minute
-mean/std window cannot see a cyclic oscillation, so frequency-domain features come next.
-These numbers are deliberately not inflated. They are the honest starting point that the roadmap improves on.
+<p align="center"><img src="reports/figures/leakage_gap_cv.png" width="820" alt="Random vs well-grouped 5-fold CV"></p>
 
-Full metrics: [`reports/metrics_baseline.json`](reports/metrics_baseline.json) · experiment log:
-[`docs/WORK_LOG.md`](docs/WORK_LOG.md)
+**What works on new wells:** hydrate in production line (F1 0.78, 64 % of events caught, mostly early) and
+spurious DHSV closure (F1 0.44).
+**What doesn't yet:** severe slugging, BSW increase, PCK restriction and rapid productivity loss are ≈ 0 F1. Flow
+instability only transfers to one of four folds.
+**What the model relies on** ([sensor importance](reports/figures/sensor_importance.png), E03): mostly
+temperatures and tree pressure, the "flow stopped / well cooling" signature. Valve states and gas-lift
+flow carry only ~12 % of the importance; removing them costs < 0.04 macro-F1 (within fold noise). Part of
+the hydrate skill comes from *which sensors a well has*, an instrumentation fingerprint that the
+next version must remove.
+
+These numbers are deliberately not inflated. Detection only counts an alarm that was **off** when the event
+started; an alarm already ringing before onset is counted as a false alarm, not a catch.
+History: the single-fold E00 numbers (macro-F1 0.29, 65 % detection) and the earlier "3.4×" leakage claim (E01)
+are superseded by E02. See the work log for why.
+
+Full metrics: [`reports/cv_summary.csv`](reports/cv_summary.csv) · [`reports/cv_results.json`](reports/cv_results.json) ·
+experiment log: [`docs/WORK_LOG.md`](docs/WORK_LOG.md)
 
 ---
 
@@ -126,6 +141,9 @@ powershell -ExecutionPolicy Bypass -File setup_env.ps1
 .venv\Scripts\python scripts/01_build_inventory.py   # catalogue + well-grouped folds
 .venv\Scripts\python scripts/02_build_features.py    # 15-min sliding windows -> features
 .venv\Scripts\python scripts/03_train_baseline.py    # train + evaluate on unseen wells
+.venv\Scripts\python scripts/06_cross_validation.py # 5-fold grouped vs random CV (--max-iter / --folds to go faster)
+.venv\Scripts\python scripts/07_sensor_reliance.py  # sensor importance + operator-signal ablation
+.venv\Scripts\python scripts/05_social_figures.py   # rule-picked figures + facts sheet (needs 06)
 
 # 3. dashboard
 .venv\Scripts\streamlit run app/streamlit_app.py
@@ -150,8 +168,8 @@ WellSentinel-3W/
 ├── models/                     # (git-ignored) trained model bundles
 ├── notebooks/                  # 01 EDA · 02 baseline results
 ├── reports/                    # metrics, event table, figures
-├── scripts/                    # 00 download · 01 inventory · 02 features · 03 train
-├── src/wellsentinel/           # reusable package: data, features, split, models, evaluate, explain
+├── scripts/                    # 00 download · 01 inventory · 02 features · 03 train · 05 figures · 06 CV · 07 reliance
+├── src/wellsentinel/           # reusable package: data, features, split, cv, models, evaluate, explain
 └── tests/                      # pytest unit tests (run in CI)
 ```
 
@@ -160,8 +178,10 @@ WellSentinel-3W/
 ## 🗺️ Roadmap
 
 - [x] v0.1: honest unseen-well baseline, event KPIs, dashboard, CI
-- [ ] 5-fold mean ± std, plus a **random-split vs. well-split** comparison that quantifies the leakage gap
-- [ ] Physics-inspired features: ΔP across PCK, PDG−TPT ΔP, FFT oscillation power (slugging), per-well normalisation
+- [x] 5-fold mean ± std, plus a **random-split vs. well-split** comparison that quantifies the leakage gap (E02)
+- [x] Sensor-reliance check: permutation importance + operator-signal ablation (E03)
+- [x] Physics-inspired features (E04): oscillation power cuts false alarms 3.0 → 1.7 per well-day; ΔP levels hurt (well-ID effect)
+- [ ] Per-well normalisation, ΔP dynamics only, 120-min slugging band, real-only vs. sim-to-real for slugging
 - [ ] LightGBM + Optuna; two-stage anomaly detector → event classifier
 - [ ] Sim-to-real ablation (real only vs. +simulated vs. +drawn)
 - [ ] SHAP "why" panel and alarm threshold chosen on a cost curve

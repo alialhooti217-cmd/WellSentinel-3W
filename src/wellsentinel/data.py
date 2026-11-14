@@ -44,6 +44,12 @@ VARIABLE_DESCRIPTIONS: dict[str, str] = {
     "T-TPT": "Xmas-tree temperature (TPT) [degC]",
     "T-PDG": "Downhole temperature (PDG) [degC]",
     "T-JUS-CKP": "Downstream production choke temperature [degC]",
+    "T-MON-CKP": "Upstream production choke temperature [degC]",
+    "P-MON-CKGL": "Upstream gas-lift choke pressure [Pa]",
+    "P-MON-SDV-P": "Upstream production SDV pressure [Pa]",
+    "P-JUS-BS": "Downstream service-pump pressure [Pa]",
+    "PT-P": "Xmas-tree pressure downstream of production wing valve [Pa]",
+    "QBS": "Service-pump flow rate [m3/s]",
 }
 
 

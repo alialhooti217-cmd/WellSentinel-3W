@@ -1,0 +1,51 @@
+run,event,f1,detect_strict
+base,Normal Operation,0.6854,
+base,Abrupt Increase of BSW,0.0000,0.0000
+base,Spurious Closure of DHSV,0.4437,0.3636
+base,Severe Slugging,0.0000,0.3438
+base,Flow Instability,0.1830,0.4490
+base,Rapid Productivity Loss,0.0000,0.4545
+base,Quick Restriction in PCK,0.0000,0.0000
+base,Scaling in PCK,0.1565,0.1389
+base,Hydrate in Production Line,0.7837,0.6429
+base,Hydrate in Service Line,0.0936,0.2308
+phys_osc,Normal Operation,0.7089,
+phys_osc,Abrupt Increase of BSW,0.0000,0.0000
+phys_osc,Spurious Closure of DHSV,0.5291,0.7727
+phys_osc,Severe Slugging,0.0000,0.6562
+phys_osc,Flow Instability,0.1737,0.4606
+phys_osc,Rapid Productivity Loss,0.0000,0.4545
+phys_osc,Quick Restriction in PCK,0.0000,0.0000
+phys_osc,Scaling in PCK,0.1511,0.0556
+phys_osc,Hydrate in Production Line,0.8955,0.7143
+phys_osc,Hydrate in Service Line,0.0530,0.2308
+phys_osc_live,Normal Operation,0.7075,
+phys_osc_live,Abrupt Increase of BSW,0.0000,0.0000
+phys_osc_live,Spurious Closure of DHSV,0.5287,0.7727
+phys_osc_live,Severe Slugging,0.0000,0.8750
+phys_osc_live,Flow Instability,0.1710,0.5102
+phys_osc_live,Rapid Productivity Loss,0.0000,0.4545
+phys_osc_live,Quick Restriction in PCK,0.0000,0.0000
+phys_osc_live,Scaling in PCK,0.1514,0.1389
+phys_osc_live,Hydrate in Production Line,0.8856,0.7857
+phys_osc_live,Hydrate in Service Line,0.0376,0.1538
+phys_start,Normal Operation,0.7139,
+phys_start,Abrupt Increase of BSW,0.0000,0.0000
+phys_start,Spurious Closure of DHSV,0.5424,0.8182
+phys_start,Severe Slugging,0.0000,0.9688
+phys_start,Flow Instability,0.0900,0.3761
+phys_start,Rapid Productivity Loss,0.0000,0.1818
+phys_start,Quick Restriction in PCK,0.0000,0.5000
+phys_start,Scaling in PCK,0.1997,0.4722
+phys_start,Hydrate in Production Line,0.8768,0.7857
+phys_start,Hydrate in Service Line,0.0288,0.1538
+phys_dp,Normal Operation,0.6176,
+phys_dp,Abrupt Increase of BSW,0.0000,0.0000
+phys_dp,Spurious Closure of DHSV,0.3637,0.5000
+phys_dp,Severe Slugging,0.0000,0.2188
+phys_dp,Flow Instability,0.1608,0.5394
+phys_dp,Rapid Productivity Loss,0.0000,0.0000
+phys_dp,Quick Restriction in PCK,0.0000,0.1667
+phys_dp,Scaling in PCK,0.0006,0.0833
+phys_dp,Hydrate in Production Line,0.8626,0.7143
+phys_dp,Hydrate in Service Line,0.0308,0.2308

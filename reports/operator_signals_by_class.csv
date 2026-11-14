@@ -1,0 +1,11 @@
+event,n_windows,qgl_available,qgl_near_zero,any_valve_moving_in_window
+Normal Operation,47360,0.547,0.560,0.001
+Abrupt Increase of BSW,251,0.873,1.000,0.000
+Spurious Closure of DHSV,371,0.288,1.000,0.051
+Severe Slugging,1843,1.000,0.034,0.021
+Flow Instability,7558,0.197,0.689,0.000
+Rapid Productivity Loss,1110,0.999,0.938,0.008
+Quick Restriction in PCK,67,0.000,0.000,0.000
+Scaling in PCK,22338,0.402,0.114,0.000
+Hydrate in Production Line,12656,1.000,0.420,0.033
+Hydrate in Service Line,709,1.000,0.000,0.000

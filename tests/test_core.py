@@ -47,3 +47,21 @@ def test_alarm_persistence():
     p = np.array([0.1, 0.9, 0.2, 0.9, 0.9, 0.9])
     assert alarm_flags(p, 0.5, 2).tolist() == [False, False, False, False, True, True]
     assert alarm_flags(p, 0.5, 1).tolist() == [False, True, False, True, True, True]
+
+
+def test_strict_detection_ignores_alarm_already_on_before_onset():
+    from wellsentinel.evaluate import event_metrics
+
+    def inst(iid, p):
+        n = len(p)
+        tgt = [0] * 4 + [2] * (n - 4)  # event onset at window 4
+        return pd.DataFrame({"instance_id": iid, "label": 2, "target": tgt, "is_transient": [t != 0 for t in tgt],
+                             "window_end": pd.date_range("2024-01-01", periods=n, freq="5min"), "p_abnormal": p})
+
+    pre = inst("a", [0.1, 0.1, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9])     # alarm on before onset, stays on
+    new = inst("b", [0.1, 0.1, 0.1, 0.1, 0.9, 0.9, 0.9, 0.9])     # alarm fires after onset
+    flap = inst("c", [0.9, 0.9, 0.9, 0.9, 0.1, 0.9, 0.9, 0.9])    # on before onset, drops, re-fires
+    pi = event_metrics(pd.concat([pre, new, flap]), step_s=300)["per_instance"].set_index("instance_id")
+    assert pi.loc["c", "detected"] and not pi.loc["c", "detected_strict"]
+    assert pi.loc["a", "detected"] and not pi.loc["a", "detected_strict"] and pi.loc["a", "pre_onset_alarm"]
+    assert pi.loc["b", "detected_strict"] and pi.loc["b", "delay_min_strict"] == 5.0

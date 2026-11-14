@@ -1,0 +1,7 @@
+variant,dropped,n_features,macro_f1_mean,macro_f1_std,bal_acc_mean,bal_acc_std,detection_rate,early_warning_rate,median_delay_min,detection_rate_strict,early_warning_rate_strict,median_delay_min_strict,false_alarms_per_well_day
+full,-,132,0.3171,0.1657,0.3619,0.1416,0.4906,0.1414,5.0000,0.4054,0.0561,5.0000,3.0284
+no_estado,ESTADO-,78,0.3120,0.1426,0.3497,0.1279,0.5198,0.1435,5.0000,0.4324,0.0561,5.0000,2.9858
+no_qgl,QGL,126,0.3244,0.1500,0.3645,0.1309,0.5281,0.1414,5.0000,0.4407,0.0541,5.0000,3.6608
+no_estado_qgl,"ESTADO-,QGL",72,0.2920,0.1257,0.3463,0.1028,0.5281,0.1435,5.0000,0.4428,0.0582,5.0000,3.6304
+no_operator,"ESTADO-,QGL,ABER-CKP,ABER-CKGL",60,0.2765,0.0831,0.3403,0.0776,0.5301,0.1497,5.0000,0.4449,0.0644,5.0000,3.2655
+no_tmonckp,T-MON-CKP,126,0.3215,0.1787,0.3570,0.1538,0.4823,0.1414,5.0000,0.3971,0.0561,5.0000,2.4568

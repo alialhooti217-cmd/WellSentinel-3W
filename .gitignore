@@ -19,3 +19,6 @@ reports/predictions_test.parquet
 .DS_Store
 Thumbs.db
 desktop.ini
+models/cv/
+reports/cv_predictions_grouped*.parquet
+reports/*.log

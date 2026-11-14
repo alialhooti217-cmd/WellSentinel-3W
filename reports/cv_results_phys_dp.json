@@ -1,0 +1,335 @@
+{
+  "features_file": "features_physics.parquet",
+  "n_features": 144,
+  "max_iter": 300,
+  "dropped_sensors": [
+    "OSC-",
+    "DRIFT0-",
+    "DRIFTR-"
+  ],
+  "folds_run": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "macro_f1_definition": "mean F1 over classes present in the test fold ground truth (macro_f1_union = sklearn default over truth \u222a predictions)",
+  "results": {
+    "grouped": [
+      {
+        "macro_f1": 0.48662385670986213,
+        "macro_f1_union": 0.34758846907847296,
+        "balanced_accuracy": 0.5069689861384854,
+        "per_class_f1": {
+          "Normal Operation": 0.7807585568917669,
+          "Spurious Closure of DHSV": 0.7748478701825557,
+          "Rapid Productivity Loss": 0.0,
+          "Hydrate in Production Line": 0.8775128564749883,
+          "Hydrate in Service Line": 0.0
+        },
+        "n_test_windows": 4152,
+        "classes_in_test": [
+          0,
+          2,
+          5,
+          8,
+          9
+        ],
+        "event": {
+          "n_event_instances": 22,
+          "detection_rate": 0.6818181818181818,
+          "median_delay_min": 0.0,
+          "early_warning_rate": 0.6818181818181818,
+          "detection_rate_strict": 0.22727272727272727,
+          "median_delay_min_strict": 0.0,
+          "early_warning_rate_strict": 0.22727272727272727,
+          "pre_onset_alarm_rate": 0.45454545454545453,
+          "false_alarms": 22,
+          "false_alarms_per_well_day": 4.648569332355098
+        },
+        "n_test_wells": 8,
+        "fold": 0,
+        "fit_seconds": 91.2
+      },
+      {
+        "macro_f1": 0.23976880750336843,
+        "macro_f1_union": 0.21579192675303155,
+        "balanced_accuracy": 0.3976406599358249,
+        "per_class_f1": {
+          "Normal Operation": 0.4801624047296816,
+          "Spurious Closure of DHSV": 0.0706401766004415,
+          "Severe Slugging": 0.0,
+          "Flow Instability": 0.6433185991159469,
+          "Rapid Productivity Loss": 0.0,
+          "Quick Restriction in PCK": 0.0,
+          "Scaling in PCK": 0.0025528520143597924,
+          "Hydrate in Production Line": 0.9612452350698857,
+          "Hydrate in Service Line": 0.0
+        },
+        "n_test_windows": 25816,
+        "classes_in_test": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "event": {
+          "n_event_instances": 136,
+          "detection_rate": 0.4485294117647059,
+          "median_delay_min": 5.0,
+          "early_warning_rate": 0.08823529411764706,
+          "detection_rate_strict": 0.40441176470588236,
+          "median_delay_min_strict": 5.0,
+          "early_warning_rate_strict": 0.04411764705882353,
+          "pre_onset_alarm_rate": 0.051470588235294115,
+          "false_alarms": 30,
+          "false_alarms_per_well_day": 1.1963445029077817
+        },
+        "n_test_wells": 9,
+        "fold": 1,
+        "fit_seconds": 38.6
+      },
+      {
+        "macro_f1": 0.09407918891607259,
+        "macro_f1_union": 0.07839932409672716,
+        "balanced_accuracy": 0.1654094652092454,
+        "per_class_f1": {
+          "Normal Operation": 0.3778509574338334,
+          "Spurious Closure of DHSV": 0.0,
+          "Flow Instability": 0.0,
+          "Scaling in PCK": 0.0,
+          "Hydrate in Service Line": 0.09254498714652956
+        },
+        "n_test_windows": 15147,
+        "classes_in_test": [
+          0,
+          2,
+          4,
+          7,
+          9
+        ],
+        "event": {
+          "n_event_instances": 101,
+          "detection_rate": 0.8613861386138614,
+          "median_delay_min": 5.0,
+          "early_warning_rate": 0.0297029702970297,
+          "detection_rate_strict": 0.8514851485148515,
+          "median_delay_min_strict": 5.0,
+          "early_warning_rate_strict": 0.019801980198019802,
+          "pre_onset_alarm_rate": 0.009900990099009901,
+          "false_alarms": 18,
+          "false_alarms_per_well_day": 1.3018583626318432
+        },
+        "n_test_wells": 7,
+        "fold": 2,
+        "fit_seconds": 58.9
+      },
+      {
+        "macro_f1": 0.2461914221830223,
+        "macro_f1_union": 0.1914822172534618,
+        "balanced_accuracy": 0.28665347630378474,
+        "per_class_f1": {
+          "Normal Operation": 0.5498347902463507,
+          "Abrupt Increase of BSW": 0.0,
+          "Spurious Closure of DHSV": 0.4943820224719101,
+          "Severe Slugging": 0.0,
+          "Flow Instability": 0.0,
+          "Scaling in PCK": 0.0,
+          "Hydrate in Production Line": 0.6791231425628954
+        },
+        "n_test_windows": 20362,
+        "classes_in_test": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "event": {
+          "n_event_instances": 83,
+          "detection_rate": 0.6987951807228916,
+          "median_delay_min": 5.0,
+          "early_warning_rate": 0.060240963855421686,
+          "detection_rate_strict": 0.6867469879518072,
+          "median_delay_min_strict": 5.0,
+          "early_warning_rate_strict": 0.04819277108433735,
+          "pre_onset_alarm_rate": 0.012048192771084338,
+          "false_alarms": 596,
+          "false_alarms_per_well_day": 12.067491563554556
+        },
+        "n_test_wells": 8,
+        "fold": 3,
+        "fit_seconds": 44.2
+      },
+      {
+        "macro_f1": 0.3301216448853248,
+        "macro_f1_union": 0.2888564392746592,
+        "balanced_accuracy": 0.39747669505463,
+        "per_class_f1": {
+          "Normal Operation": 0.8995623386825272,
+          "Abrupt Increase of BSW": 0.0,
+          "Spurious Closure of DHSV": 0.4788732394366197,
+          "Flow Instability": 0.0,
+          "Quick Restriction in PCK": 0.0,
+          "Scaling in PCK": 0.0,
+          "Hydrate in Production Line": 0.9324159360781268
+        },
+        "n_test_windows": 28786,
+        "classes_in_test": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          7,
+          8
+        ],
+        "event": {
+          "n_event_instances": 139,
+          "detection_rate": 0.1223021582733813,
+          "median_delay_min": 10.0,
+          "early_warning_rate": 0.06474820143884892,
+          "detection_rate_strict": 0.1223021582733813,
+          "median_delay_min_strict": 10.0,
+          "early_warning_rate_strict": 0.06474820143884892,
+          "pre_onset_alarm_rate": 0.0,
+          "false_alarms": 29,
+          "false_alarms_per_well_day": 0.40604793621469204
+        },
+        "n_test_wells": 8,
+        "fold": 4,
+        "fit_seconds": 60.3
+      }
+    ]
+  },
+  "grouped_pooled_event": {
+    "n_event_instances": 481,
+    "detection_rate": 0.49480249480249483,
+    "median_delay_min": 5.0,
+    "early_warning_rate": 0.09147609147609148,
+    "detection_rate_strict": 0.4573804573804574,
+    "median_delay_min_strict": 5.0,
+    "early_warning_rate_strict": 0.05405405405405406,
+    "pre_onset_alarm_rate": 0.0395010395010395,
+    "false_alarms": 695,
+    "false_alarms_per_well_day": 4.226351351351351
+  },
+  "grouped_pooled_event_per_class": [
+    {
+      "event": "Abrupt Increase of BSW",
+      "n": 4,
+      "detection_rate": 0.0,
+      "early_warning_rate": 0.0,
+      "median_delay_min": null,
+      "detection_rate_strict": 0.0,
+      "early_warning_rate_strict": 0.0,
+      "median_delay_min_strict": null,
+      "pre_onset_alarm_rate": 0.0,
+      "starts_in_event_rate": 0.0
+    },
+    {
+      "event": "Flow Instability",
+      "n": 343,
+      "detection_rate": 0.5393586005830904,
+      "early_warning_rate": 0.0,
+      "median_delay_min": 5.0,
+      "detection_rate_strict": 0.5393586005830904,
+      "early_warning_rate_strict": 0.0,
+      "median_delay_min_strict": 5.0,
+      "pre_onset_alarm_rate": 0.0,
+      "starts_in_event_rate": 1.0
+    },
+    {
+      "event": "Hydrate in Production Line",
+      "n": 14,
+      "detection_rate": 0.9285714285714286,
+      "early_warning_rate": 0.9285714285714286,
+      "median_delay_min": 5.0,
+      "detection_rate_strict": 0.7142857142857143,
+      "early_warning_rate_strict": 0.7142857142857143,
+      "median_delay_min_strict": 5.0,
+      "pre_onset_alarm_rate": 0.21428571428571427,
+      "starts_in_event_rate": 0.0
+    },
+    {
+      "event": "Hydrate in Service Line",
+      "n": 13,
+      "detection_rate": 0.23076923076923078,
+      "early_warning_rate": 0.15384615384615385,
+      "median_delay_min": 160.0,
+      "detection_rate_strict": 0.23076923076923078,
+      "early_warning_rate_strict": 0.15384615384615385,
+      "median_delay_min_strict": 160.0,
+      "pre_onset_alarm_rate": 0.0,
+      "starts_in_event_rate": 0.07692307692307693
+    },
+    {
+      "event": "Quick Restriction in PCK",
+      "n": 6,
+      "detection_rate": 0.5,
+      "early_warning_rate": 0.3333333333333333,
+      "median_delay_min": 0.0,
+      "detection_rate_strict": 0.16666666666666666,
+      "early_warning_rate_strict": 0.0,
+      "median_delay_min_strict": 30.0,
+      "pre_onset_alarm_rate": 0.5,
+      "starts_in_event_rate": 0.0
+    },
+    {
+      "event": "Rapid Productivity Loss",
+      "n": 11,
+      "detection_rate": 0.09090909090909091,
+      "early_warning_rate": 0.09090909090909091,
+      "median_delay_min": 0.0,
+      "detection_rate_strict": 0.0,
+      "early_warning_rate_strict": 0.0,
+      "median_delay_min_strict": null,
+      "pre_onset_alarm_rate": 0.09090909090909091,
+      "starts_in_event_rate": 0.18181818181818182
+    },
+    {
+      "event": "Scaling in PCK",
+      "n": 36,
+      "detection_rate": 0.1111111111111111,
+      "early_warning_rate": 0.1111111111111111,
+      "median_delay_min": 740.0,
+      "detection_rate_strict": 0.08333333333333333,
+      "early_warning_rate_strict": 0.08333333333333333,
+      "median_delay_min_strict": 1100.0,
+      "pre_onset_alarm_rate": 0.027777777777777776,
+      "starts_in_event_rate": 0.0
+    },
+    {
+      "event": "Severe Slugging",
+      "n": 32,
+      "detection_rate": 0.21875,
+      "early_warning_rate": 0.0,
+      "median_delay_min": 55.0,
+      "detection_rate_strict": 0.21875,
+      "early_warning_rate_strict": 0.0,
+      "median_delay_min_strict": 55.0,
+      "pre_onset_alarm_rate": 0.0,
+      "starts_in_event_rate": 1.0
+    },
+    {
+      "event": "Spurious Closure of DHSV",
+      "n": 22,
+      "detection_rate": 1.0,
+      "early_warning_rate": 1.0,
+      "median_delay_min": 0.0,
+      "detection_rate_strict": 0.5,
+      "early_warning_rate_strict": 0.5,
+      "median_delay_min_strict": 5.0,
+      "pre_onset_alarm_rate": 0.5,
+      "starts_in_event_rate": 0.0
+    }
+  ]
+}
