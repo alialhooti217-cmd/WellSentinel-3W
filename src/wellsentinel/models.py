@@ -27,14 +27,25 @@ def build_model(cfg: dict):
     raise ValueError(f"Unknown model type: {mtype}")
 
 
-def save_bundle(model, feature_cols: list[str], cfg: dict, path: str | Path) -> None:
+def normal_reference(table, train_mask, feature_cols: list[str]) -> dict[str, float]:
+    """Median feature values of REAL normal-operation training windows ("a typical healthy window").
+    Used by the per-window alarm explanation (sensor occlusion)."""
+    import numpy as np
+    m = np.asarray(train_mask) & (table["instance_type"] == "real").to_numpy() & (table["target"] == 0).to_numpy()
+    med = table.loc[m, feature_cols].median()
+    return {k: (float(v) if v == v else None) for k, v in med.items()}
+
+
+def save_bundle(model, feature_cols: list[str], cfg: dict, path: str | Path,
+                normal_ref: dict | None = None, meta: dict | None = None) -> None:
     """Save the model together with everything needed to use it later."""
     from .features import physics_config
     uses_physics = any(c.split("__")[0].startswith(("PHY-", "OSC-", "DRIFT")) for c in feature_cols)
     joblib.dump(
         {"model": model, "feature_cols": feature_cols, "windows": cfg["windows"],
          "stats": cfg["features"]["stats"], "alarm": cfg["alarm"],
-         "physics": physics_config(cfg["features"]) if uses_physics else None},
+         "physics": physics_config(cfg["features"]) if uses_physics else None,
+         "normal_reference": normal_ref, "meta": meta or {}},
         path,
     )
 
