@@ -147,6 +147,20 @@ powershell -ExecutionPolicy Bypass -File setup_env.ps1
 .venv\Scripts\python -m pytest -q
 ```
 
+### Demo without the dataset / deploy to Streamlit Community Cloud
+`demo/` holds 21 real 3W instances (picked by rule, CC BY 4.0 attribution in [`demo/README.md`](demo/README.md)),
+their out-of-fold predictions and the models (about 23 MB). The app switches to **DEMO_MODE** automatically when
+`data/raw/3W` is missing, or force it locally:
+
+```bash
+WELLSENTINEL_DEMO=1 streamlit run app/streamlit_app.py      # PowerShell: $env:WELLSENTINEL_DEMO=1; streamlit run app/streamlit_app.py
+```
+
+Deploy: [share.streamlit.io](https://share.streamlit.io) → *Create app* → repository
+`alialhooti217-cmd/WellSentinel-3W`, branch `main`, main file `app/streamlit_app.py`, *Advanced settings* →
+Python 3.12. Cloud installs [`app/requirements.txt`](app/requirements.txt) (scikit-learn pinned to the version
+that saved the models). Rebuild the subset after retraining with `python scripts/10_make_demo.py`.
+
 Long runs take `--folds` and `--max-iter`; one model fit is ~1–2 min on a laptop. All experiments:
 `bash scripts/run_release_experiments.sh`. Project conventions: [`CLAUDE.md`](CLAUDE.md).
 
@@ -162,7 +176,7 @@ WellSentinel-3W/
 ├── marketing/assets/           # rule-picked figures + facts sheet
 ├── models/                     # (git-ignored) model bundles
 ├── reports/                    # CV results, final_results.{json,md}, figures
-├── scripts/                    # 00 download … 09 results table
+├── scripts/                    # 00 download … 10 demo builder
 ├── src/wellsentinel/           # package: data, features, split, cv, models, evaluate, explain, io
 └── tests/                      # pytest (CI, no dataset needed) incl. a docs-numbers guard
 ```
