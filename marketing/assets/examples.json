@@ -1,36 +1,36 @@
 {
   "rules": {
-    "success": "class 'Hydrate in Production Line' has the highest strict detection rate (64%, n=14); instance with median delay among 9 detected",
-    "failure": "class 'Flow Instability' has the most missed instances (189 of 343); instance with median peak P(abnormal) among 189 missed"
+    "success": "'Hydrate in Production Line' has the highest strict detection (79%, n=14) among classes with n>=5 and F1>=0.3; median strict delay among its 11 detected instances",
+    "failure": "'Flow Instability' has the most missed instances (168 of 343); median peak P(abnormal) among them"
   },
   "success": {
-    "instance": "8/WELL-00028_20210617053128",
+    "instance": "8/WELL-00029_20201020231724",
     "event": "Hydrate in Production Line",
-    "fold": 3,
+    "well": "WELL-00029",
+    "fold": 0,
     "sensors_plotted": [
       "T-MON-CKP",
       "QGL"
     ],
-    "event_onset": "2021-06-17 18:39:18",
-    "first_alarm_after_onset": "2021-06-17 18:46:27",
-    "steady_state": "2021-06-20 22:20:03",
-    "delay_min": 5.0,
-    "early_warning": true,
-    "peak_p_abnormal": 0.9999277602516129
+    "event_onset": "2020-10-21 16:10:48",
+    "first_alarm_after_onset": "2020-10-21 16:17:23",
+    "delay_min_strict": 5.0,
+    "early_warning_strict": true,
+    "peak_p_abnormal": 0.9999903304896361
   },
   "failure": {
-    "instance": "4/WELL-00002_20140121230117",
+    "instance": "4/WELL-00002_20140119090112",
     "event": "Flow Instability",
+    "well": "WELL-00002",
     "fold": 4,
     "sensors_plotted": [
       "P-TPT",
       "T-TPT"
     ],
-    "event_onset": "2014-01-22 00:01:17",
+    "event_onset": "2014-01-19 10:01:12",
     "first_alarm_after_onset": null,
-    "steady_state": "2014-01-22 00:01:17",
-    "delay_min": null,
-    "early_warning": false,
-    "peak_p_abnormal": 0.12480101848633951
+    "delay_min_strict": null,
+    "early_warning_strict": false,
+    "peak_p_abnormal": 0.017171163063378736
   }
 }
