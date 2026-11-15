@@ -1,0 +1,24 @@
+scheme,metric,mean,std,n_folds
+grouped,macro_f1,0.3327,0.1634,5
+grouped,macro_f1_union,0.2556,0.1156,5
+grouped,balanced_accuracy,0.3677,0.1379,5
+grouped,f1::Normal Operation,0.7052,0.2379,5
+grouped,f1::Spurious Closure of DHSV,0.4961,0.4316,5
+grouped,f1::Rapid Productivity Loss,0.0000,0.0000,2
+grouped,f1::Hydrate in Production Line,0.8922,0.1420,4
+grouped,f1::Hydrate in Service Line,0.0294,0.0510,3
+grouped,event::n_event_instances,96.2000,47.7462,5
+grouped,event::detection_rate,0.6142,0.2952,5
+grouped,event::median_delay_min,5.0000,0.0000,5
+grouped,event::early_warning_rate,0.2170,0.2917,5
+grouped,event::detection_rate_strict,0.5598,0.2690,5
+grouped,event::median_delay_min_strict,5.0000,0.0000,5
+grouped,event::early_warning_rate_strict,0.1626,0.2653,5
+grouped,event::pre_onset_alarm_rate,0.0544,0.0628,5
+grouped,event::false_alarms,59.2000,69.8548,5
+grouped,event::false_alarms_per_well_day,1.8486,1.2801,5
+grouped,f1::Severe Slugging,0.0000,0.0000,2
+grouped,f1::Flow Instability,0.1805,0.3610,4
+grouped,f1::Quick Restriction in PCK,0.0000,0.0000,2
+grouped,f1::Scaling in PCK,0.1510,0.3021,4
+grouped,f1::Abrupt Increase of BSW,0.0000,0.0000,2

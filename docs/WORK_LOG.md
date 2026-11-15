@@ -15,6 +15,15 @@ Keep one entry per work session: what you did, what you found, what's next. This
 | E02 | 2026-11-14 | Fair leakage gap: 5-fold GROUPED-by-well CV vs 5-fold RANDOM window CV, same real windows, same 132 features, same HGB; simulated + drawn in training only (`06_cross_validation.py`). Added strict event metrics. | grouped 5 folds (40 wells) vs random 5 folds | grouped **0.317 ± 0.166** · random **0.978 ± 0.007** | 41 % strict (49 % lenient) | 5.6 % strict (14 % lenient) | 5 | 3.0 | **Gap = 3.1× (macro-F1), 2.7× (balanced acc.)**. Fold-to-fold spread on unseen wells is huge (0.10 → 0.56). See notes below |
 | E03 | 2026-11-14 | Sensor reliance: sensor-level permutation importance on unseen wells + ablation without operator signals (`07_sensor_reliance.py`) | grouped 5 folds | full 0.317 ± 0.166 · no ESTADO/QGL 0.292 ± 0.126 · no ESTADO/QGL/ABER 0.277 ± 0.083 · no T-MON-CKP 0.321 ± 0.179 | 41 → 44 % strict | 5.6 → 5.8 % strict | 5 | 3.0 → 3.6 | Operator signals are NOT the main driver (~12 % of importance; removing them changes macro-F1 within fold noise). Model relies on temperatures + tree pressure, i.e. the "flow stopped / well cooling" signature, and partly on which sensors a well has |
 | E04 | 2026-11-14 | Physics features (`features.physics: true`): ΔP across PCK / tubing / gas-lift choke / flowline, FFT oscillation (2–60 min band, 120-min trailing history) for P-TPT, P-MON-CKP, P-PDG, drift vs instance start (DRIFT0) and vs [t−3h, t−1h] (DRIFTR). 7 grouped-CV variants (`08_compare_cv.py`) | grouped 5 folds | best deployable (oscillation + live drift) **0.337 ± 0.163** vs 0.317 | 51 % strict (41 %) | 8.3 % strict (5.6 %) | 5 | **1.7** (3.0) | **Oscillation features are the win**: false alarms −43 % (lower on 4/5 folds, never higher), DHSV F1 0.44→0.53, hydrate-production F1 0.78→0.89. **ΔP features hurt** (−0.04…−0.08). Macro-F1 gain is within noise. Severe slugging still F1 = 0 (sim-to-real gap, see notes) |
+| E05 | 2026-11-15 | ΔP dynamics only: v1 + ΔP std/slope + ΔP live drift, no ΔP mean/last | grouped 5 folds | 0.333 ± 0.163 (v1 0.337) | 51.8 % | 7.3 % | 5 | 1.80 | **Negative** (detect better on 2/5 folds, FA up). But ΔP without levels is ~neutral (−0.005) whereas ΔP with levels cost −0.06 in E04 → supports "ΔP levels act as a well ID" |
+| E06 | 2026-11-15 | Oscillation band 2–120 min on 4 h history (OSC120- replaces OSC-) | grouped 5 folds | 0.330 ± 0.171 | 47.6 % | 9.8 % | 5 | 1.72 | **Negative** (detect worse on 3/5). Confirms real slugging period ≈ 77–80 min (was clipped at 60), yet slugging still F1 = 0 |
+| E07 | 2026-11-15 | Per-well normalised oscillation: log(amplitude ÷ own median amplitude over [t−3h, t−1h]), label-free, causal | grouped 5 folds | 0.318 ± 0.168 | 45.3 % | 8.1 % | 22.5 | 1.67 | **Negative** (detect worse on 4/5, delay ×4.5): a trailing reference adapts to a slowly developing event |
+| E08a | 2026-11-15 | v1 + explicit availability masks (MASK-, share of valid samples per sensor) | grouped 5 folds | 0.335 ± 0.161 | 47.6 % | 7.7 % | 5 | 1.99 | **Negative**, ~neutral: trees already read the NaN pattern, masks add nothing new |
+| E08b | 2026-11-15 | Only sensors present on ≥ 70 % of real windows (55 features) | grouped 5 folds | 0.291 ± 0.138 | 47.6 % | 10.4 % | 5 | 2.24 | **Negative**. Hydrate-production F1 0.89 → **0.50**: most hydrate skill depends on rarely-installed sensors |
+| E08c | 2026-11-15 | v1 without T-MON-CKP | grouped 5 folds | 0.308 ± 0.168 | 54.1 % | 10.2 % | 5 | 2.30 | **Negative** (detect better 4/5 but FA up 1.7 → 2.3). Hydrate F1 0.89 → **0.77** from this one sensor |
+| E09a | 2026-11-15 | Sim-to-real: real-only training (no simulated, no drawn) | grouped 5 folds | 0.314 ± 0.172 | 55.7 % | 8.1 % | 5 | **9.2** | **Negative**: more alarms everywhere (FA ×5, fold 4: 15.7/well-day). Simulated data mainly teaches the model what *normal* looks like |
+| E09c | 2026-11-15 | Sim-to-real: simulated slugging amplitudes rescaled to real (factors from training folds only) | grouped 5 folds | 0.333 ± 0.166 | 49.5 % | 7.5 % | 5 | **1.47** | **Negative** (detect better 1/5, worse 2/5) despite the lowest FA. Slugging still F1 = 0 |
+| E10 | 2026-11-15 | **Final v1.0 model** = v1 (E04 set, unchanged by E05–E09): base stats + OSC- + DRIFTR-, 145 features. Grouped + random CV, importance by physical sensor | grouped 5 folds + random 5 folds | **0.337 ± 0.163** · random 0.983 ± 0.008 | **50.5 %** | **8.3 %** | **5** | **1.72** | Leakage gap 2.9× (macro-F1), 2.6× (balanced acc.). Shipped as `models/wellsentinel_v1.joblib` (all wells) + fold models for honest replay |
 
 ### E02 notes: the leakage gap, measured fairly (2026-11-14)
 - **Why E01 was unfair.** The random number came from a stratified 20 % test set with all 10 classes; the
@@ -156,3 +165,59 @@ The gas-lift choke ΔP exists on only 2 wells (1 % of real windows), so the > 95
 - Next experiments: (1) ΔP dynamics only (no levels); (2) band up to 120 min, 4 h history; (3) per-well
   normalisation of amplitudes (÷ the well's own normal-operation level); (4) sim-to-real check for slugging:
   train real-only vs + simulated; (5) re-run E03 importance on the physics model.
+
+### E05–E10 notes: release v1.0 experiments (2026-11-15)
+All runs: grouped 5-fold CV, same 236,889 windows, compared against the **v1 candidate** (E04 set, reproduced
+exactly: macro-F1 0.337 ± 0.163). **Adoption rule:** strict detection better on ≥ 3 of 5 folds AND pooled false alarms
+per well-day not higher. `scripts/run_release_experiments.sh` → `08_compare_cv.py --tags v1 base e05 … --out
+release_compare` (`reports/release_compare*.csv`, `reports/figures/release_compare.png`).
+
+| Run | Change | Macro-F1 | Strict det. folds ↑/↓ | Strict detect | FA / well-day | Hydrate-prod F1 | Slugging F1 | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| v1 | E04 set (reference) | 0.337 ± 0.163 | – | 50.5 % | 1.72 | 0.89 | 0.00 | **reference** |
+| base | E02 baseline | 0.317 ± 0.166 | 1 / 4 | 40.5 % | 3.03 | 0.78 | 0.00 | (v1 is ADOPTED over base: 4/5 folds, FA 3.0 → 1.7) |
+| E05 | ΔP dynamics, no levels | 0.333 ± 0.163 | 2 / 1 | 51.8 % | 1.80 | 0.89 | 0.00 | negative |
+| E06 | 2–120 min band, 4 h | 0.330 ± 0.171 | 1 / 3 | 47.6 % | 1.72 | 0.89 | 0.00 | negative |
+| E07 | own-level normalised oscillation | 0.318 ± 0.168 | 0 / 4 | 45.3 % | 1.67 | 0.87 | 0.00 | negative |
+| E08a | + availability masks | 0.335 ± 0.161 | 1 / 2 | 47.6 % | 1.99 | 0.88 | 0.00 | negative |
+| E08b | sensors on ≥ 70 % of windows | 0.291 ± 0.138 | 3 / 2 | 47.6 % | 2.24 | **0.50** | 0.00 | negative (FA up) |
+| E08c | − T-MON-CKP | 0.308 ± 0.168 | 4 / 0 | 54.1 % | 2.30 | **0.77** | 0.00 | negative (FA up) |
+| E09a | real only | 0.314 ± 0.172 | 4 / 0 | 55.7 % | 9.22 | 0.93 | 0.00 | negative (FA ×5) |
+| E09c | sim slugging rescaled | 0.333 ± 0.166 | 1 / 2 | 49.5 % | 1.47 | 0.88 | 0.00 | negative |
+
+**What each negative result teaches**
+- **E05, ΔP dynamics:** removing the ΔP *levels* turns ΔP from harmful (−0.06 macro-F1, E04) into neutral (−0.005).
+  That supports the hypothesis: a tubing ΔP level is roughly the hydrostatic head, a per-well constant that acts as
+  a well ID. ΔP dynamics carry little that oscillation + drift do not already carry.
+- **E06, wider band:** real slugging's dominant period is ~77–80 min in the 2–120 min band (simulated: 38–50 min),
+  so the 60-min edge did clip it. The model still never learns real slugging (see E09), so a better descriptor does
+  not help yet.
+- **E07, per-well normalisation:** comparing amplitude with the instance's own [t−3h, t−1h] level is label-free and
+  causal, but a slowly developing event raises its own reference. Detection fell on 4/5 folds and the median delay rose
+  from 5 to 22.5 min. A per-well *calibration* on known-normal history (needs operator-confirmed normal periods)
+  remains future work.
+- **E08, missingness:** masks change nothing (E08a), because HistGradientBoosting already routes NaNs; the
+  availability pattern is already in use. Hydrate F1 depends on the T-MON-CKP fingerprint: −0.12 without that one
+  sensor (0.89 → 0.77), and −0.38 when only sensors present on ≥ 70 % of real windows are kept (0.89 → 0.50).
+  Hydrate *event detection* is less affected (79 % → 79 % without T-MON-CKP, 57 % with common sensors only).
+- **E09, slugging sim-to-real (effectively tested on ONE fold, ONE well: WELL-00014, 31 of 32 real instances):**
+  no variant classifies a single real slugging window correctly. When fold 1 is held out, the training set holds
+  exactly one real slugging instance (WELL-00001). Real-only training then detects more events (55.7 %) but floods the
+  control room (9.2 false alarms per well-day; fold 4: 15.7). The simulated data mainly teaches the model what
+  normal flow looks like. Rescaling simulated amplitudes to real gives the lowest false-alarm rate (1.47) but does not
+  pass the rule, and its fold-1 factors come from that single WELL-00001 instance (P-PDG factor 0.0). **Conclusion:**
+  severe slugging cannot be learned or fairly evaluated with the real data available under well-grouped CV.
+  It needs either more real slugging wells or a physics rule (E04: "P-TPT band amplitude > 1 bar" flags 94 % of real
+  slugging windows, an optimistic, in-sample number).
+
+**E10, final v1.0 model.** No E05–E09 change passed the rule, so `model.recommended` stays at the E04 set
+(145 features). Grouped 5-fold: macro-F1 **0.337 ± 0.163**, balanced accuracy 0.375 ± 0.139, strict detection
+**50.5 %**, strict early warning **8.3 %**, median strict delay **5 min**, **1.72** false alarms per well-day. Random 5-fold
+on the same set: 0.983 ± 0.008 → leakage gap **2.9×**. The deployable model (`wellsentinel_v1.joblib`) is trained on all
+40 real wells + simulated + drawn; the dashboard replays wells with the fold model that never saw them.
+Sensor importance of the final fold models, grouped by physical sensor (oscillation and drift features count with
+their sensor; `reports/sensor_importance_v1.csv`): T-TPT 0.069 · T-MON-CKP 0.068 · P-TPT 0.052 · P-PDG 0.018 ·
+QGL 0.016 · P-MON-CKP 0.014; operator signals 9 % of importance (E03: 12 %). Per class: DHSV closure → T-TPT 0.40,
+P-TPT 0.18 (tree cools and depressurises when flow stops); hydrate → T-MON-CKP 0.45 (fingerprint), QGL 0.13 (gas-lift
+trip); flow instability → P-MON-CKP 0.08, P-TPT 0.06 (the oscillation features of the choke and tree pressures);
+scaling → P-PDG 0.07, P-TPT 0.05.

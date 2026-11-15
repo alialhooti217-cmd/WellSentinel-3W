@@ -1,0 +1,14 @@
+scheme,metric,mean,std,n_folds
+random,macro_f1,0.9834,0.0083,5
+random,macro_f1_union,0.9834,0.0083,5
+random,balanced_accuracy,0.9754,0.0110,5
+random,f1::Normal Operation,0.9977,0.0005,5
+random,f1::Abrupt Increase of BSW,0.9859,0.0116,5
+random,f1::Spurious Closure of DHSV,0.9821,0.0145,5
+random,f1::Severe Slugging,1.0000,0.0000,5
+random,f1::Flow Instability,0.9988,0.0010,5
+random,f1::Rapid Productivity Loss,0.9950,0.0040,5
+random,f1::Quick Restriction in PCK,0.8944,0.0779,5
+random,f1::Scaling in PCK,0.9976,0.0008,5
+random,f1::Hydrate in Production Line,0.9988,0.0003,5
+random,f1::Hydrate in Service Line,0.9838,0.0105,5

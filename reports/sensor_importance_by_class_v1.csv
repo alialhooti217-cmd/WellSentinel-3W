@@ -1,0 +1,221 @@
+sensor,event,drop_mean,n_folds
+ABER-CKGL,Abrupt Increase of BSW,0.0000,2
+ABER-CKGL,Flow Instability,-0.1438,4
+ABER-CKGL,Hydrate in Production Line,0.0002,4
+ABER-CKGL,Hydrate in Service Line,-0.0045,3
+ABER-CKGL,Normal Operation,0.0132,5
+ABER-CKGL,Quick Restriction in PCK,0.0000,2
+ABER-CKGL,Rapid Productivity Loss,0.0000,2
+ABER-CKGL,Scaling in PCK,0.0000,4
+ABER-CKGL,Severe Slugging,0.0000,2
+ABER-CKGL,Spurious Closure of DHSV,0.0034,5
+ABER-CKP,Abrupt Increase of BSW,0.0000,2
+ABER-CKP,Flow Instability,0.0003,4
+ABER-CKP,Hydrate in Production Line,-0.0013,4
+ABER-CKP,Hydrate in Service Line,-0.0022,3
+ABER-CKP,Normal Operation,0.0025,5
+ABER-CKP,Quick Restriction in PCK,0.0000,2
+ABER-CKP,Rapid Productivity Loss,0.0000,2
+ABER-CKP,Scaling in PCK,0.0030,4
+ABER-CKP,Severe Slugging,0.0000,2
+ABER-CKP,Spurious Closure of DHSV,-0.0012,5
+ESTADO-DHSV,Abrupt Increase of BSW,0.0000,2
+ESTADO-DHSV,Flow Instability,0.0000,4
+ESTADO-DHSV,Hydrate in Production Line,0.0000,4
+ESTADO-DHSV,Hydrate in Service Line,0.0046,3
+ESTADO-DHSV,Normal Operation,-0.0002,5
+ESTADO-DHSV,Quick Restriction in PCK,0.0000,2
+ESTADO-DHSV,Rapid Productivity Loss,0.0000,2
+ESTADO-DHSV,Scaling in PCK,0.0000,4
+ESTADO-DHSV,Severe Slugging,0.0000,2
+ESTADO-DHSV,Spurious Closure of DHSV,0.0093,5
+ESTADO-M1,Abrupt Increase of BSW,0.0000,2
+ESTADO-M1,Flow Instability,0.0003,4
+ESTADO-M1,Hydrate in Production Line,0.0030,4
+ESTADO-M1,Hydrate in Service Line,0.0000,3
+ESTADO-M1,Normal Operation,0.0001,5
+ESTADO-M1,Quick Restriction in PCK,0.0000,2
+ESTADO-M1,Rapid Productivity Loss,0.0000,2
+ESTADO-M1,Scaling in PCK,-0.0002,4
+ESTADO-M1,Severe Slugging,0.0000,2
+ESTADO-M1,Spurious Closure of DHSV,0.0126,5
+ESTADO-M2,Abrupt Increase of BSW,0.0000,2
+ESTADO-M2,Flow Instability,0.0000,4
+ESTADO-M2,Hydrate in Production Line,0.0000,4
+ESTADO-M2,Hydrate in Service Line,0.0001,3
+ESTADO-M2,Normal Operation,0.0043,5
+ESTADO-M2,Quick Restriction in PCK,0.0000,2
+ESTADO-M2,Rapid Productivity Loss,0.0000,2
+ESTADO-M2,Scaling in PCK,0.0011,4
+ESTADO-M2,Severe Slugging,0.0000,2
+ESTADO-M2,Spurious Closure of DHSV,0.0086,5
+ESTADO-PXO,Abrupt Increase of BSW,0.0000,2
+ESTADO-PXO,Flow Instability,0.0000,4
+ESTADO-PXO,Hydrate in Production Line,-0.0001,4
+ESTADO-PXO,Hydrate in Service Line,0.0001,3
+ESTADO-PXO,Normal Operation,-0.0006,5
+ESTADO-PXO,Quick Restriction in PCK,0.0000,2
+ESTADO-PXO,Rapid Productivity Loss,0.0000,2
+ESTADO-PXO,Scaling in PCK,0.0000,4
+ESTADO-PXO,Severe Slugging,-0.1197,2
+ESTADO-PXO,Spurious Closure of DHSV,0.0063,5
+ESTADO-SDV-GL,Abrupt Increase of BSW,0.0000,2
+ESTADO-SDV-GL,Flow Instability,0.0000,4
+ESTADO-SDV-GL,Hydrate in Production Line,-0.0004,4
+ESTADO-SDV-GL,Hydrate in Service Line,0.0000,3
+ESTADO-SDV-GL,Normal Operation,-0.0007,5
+ESTADO-SDV-GL,Quick Restriction in PCK,0.0000,2
+ESTADO-SDV-GL,Rapid Productivity Loss,0.0000,2
+ESTADO-SDV-GL,Scaling in PCK,0.0000,4
+ESTADO-SDV-GL,Severe Slugging,0.0000,2
+ESTADO-SDV-GL,Spurious Closure of DHSV,-0.0036,5
+ESTADO-SDV-P,Abrupt Increase of BSW,0.0000,2
+ESTADO-SDV-P,Flow Instability,0.0000,4
+ESTADO-SDV-P,Hydrate in Production Line,0.0002,4
+ESTADO-SDV-P,Hydrate in Service Line,0.0005,3
+ESTADO-SDV-P,Normal Operation,0.0003,5
+ESTADO-SDV-P,Quick Restriction in PCK,0.0000,2
+ESTADO-SDV-P,Rapid Productivity Loss,0.0000,2
+ESTADO-SDV-P,Scaling in PCK,0.0000,4
+ESTADO-SDV-P,Severe Slugging,0.0000,2
+ESTADO-SDV-P,Spurious Closure of DHSV,0.0014,5
+ESTADO-W1,Abrupt Increase of BSW,0.0000,2
+ESTADO-W1,Flow Instability,-0.0008,4
+ESTADO-W1,Hydrate in Production Line,0.0078,4
+ESTADO-W1,Hydrate in Service Line,-0.0016,3
+ESTADO-W1,Normal Operation,0.0007,5
+ESTADO-W1,Quick Restriction in PCK,0.0000,2
+ESTADO-W1,Rapid Productivity Loss,0.0000,2
+ESTADO-W1,Scaling in PCK,-0.0002,4
+ESTADO-W1,Severe Slugging,0.0000,2
+ESTADO-W1,Spurious Closure of DHSV,0.0023,5
+ESTADO-W2,Abrupt Increase of BSW,0.0000,2
+ESTADO-W2,Flow Instability,0.0007,4
+ESTADO-W2,Hydrate in Production Line,0.0004,4
+ESTADO-W2,Hydrate in Service Line,-0.0138,3
+ESTADO-W2,Normal Operation,0.0012,5
+ESTADO-W2,Quick Restriction in PCK,0.0000,2
+ESTADO-W2,Rapid Productivity Loss,0.0000,2
+ESTADO-W2,Scaling in PCK,0.0000,4
+ESTADO-W2,Severe Slugging,0.0000,2
+ESTADO-W2,Spurious Closure of DHSV,0.0000,5
+ESTADO-XO,Abrupt Increase of BSW,0.0000,2
+ESTADO-XO,Flow Instability,0.0000,4
+ESTADO-XO,Hydrate in Production Line,0.0000,4
+ESTADO-XO,Hydrate in Service Line,0.0000,3
+ESTADO-XO,Normal Operation,0.0000,5
+ESTADO-XO,Quick Restriction in PCK,0.0000,2
+ESTADO-XO,Rapid Productivity Loss,0.0000,2
+ESTADO-XO,Scaling in PCK,0.0000,4
+ESTADO-XO,Severe Slugging,0.0000,2
+ESTADO-XO,Spurious Closure of DHSV,0.0000,5
+P-ANULAR,Abrupt Increase of BSW,0.0000,2
+P-ANULAR,Flow Instability,-0.0064,4
+P-ANULAR,Hydrate in Production Line,0.0079,4
+P-ANULAR,Hydrate in Service Line,0.0071,3
+P-ANULAR,Normal Operation,-0.0113,5
+P-ANULAR,Quick Restriction in PCK,0.0000,2
+P-ANULAR,Rapid Productivity Loss,0.0000,2
+P-ANULAR,Scaling in PCK,-0.0001,4
+P-ANULAR,Severe Slugging,0.0000,2
+P-ANULAR,Spurious Closure of DHSV,0.0028,5
+P-JUS-CKGL,Abrupt Increase of BSW,0.0000,2
+P-JUS-CKGL,Flow Instability,0.0309,4
+P-JUS-CKGL,Hydrate in Production Line,0.0121,4
+P-JUS-CKGL,Hydrate in Service Line,0.0206,3
+P-JUS-CKGL,Normal Operation,0.0041,5
+P-JUS-CKGL,Quick Restriction in PCK,0.0000,2
+P-JUS-CKGL,Rapid Productivity Loss,0.0000,2
+P-JUS-CKGL,Scaling in PCK,-0.0002,4
+P-JUS-CKGL,Severe Slugging,0.0000,2
+P-JUS-CKGL,Spurious Closure of DHSV,0.0121,5
+P-JUS-CKP,Abrupt Increase of BSW,0.0000,2
+P-JUS-CKP,Flow Instability,0.0000,4
+P-JUS-CKP,Hydrate in Production Line,-0.0049,4
+P-JUS-CKP,Hydrate in Service Line,0.0000,3
+P-JUS-CKP,Normal Operation,0.0083,5
+P-JUS-CKP,Quick Restriction in PCK,0.0000,2
+P-JUS-CKP,Rapid Productivity Loss,0.0000,2
+P-JUS-CKP,Scaling in PCK,0.0001,4
+P-JUS-CKP,Severe Slugging,0.0000,2
+P-JUS-CKP,Spurious Closure of DHSV,-0.0020,5
+P-MON-CKP,Abrupt Increase of BSW,0.0000,2
+P-MON-CKP,Flow Instability,0.0840,4
+P-MON-CKP,Hydrate in Production Line,0.0221,4
+P-MON-CKP,Hydrate in Service Line,-0.0265,3
+P-MON-CKP,Normal Operation,0.0053,5
+P-MON-CKP,Quick Restriction in PCK,0.0000,2
+P-MON-CKP,Rapid Productivity Loss,0.0000,2
+P-MON-CKP,Scaling in PCK,-0.0145,4
+P-MON-CKP,Severe Slugging,0.0000,2
+P-MON-CKP,Spurious Closure of DHSV,0.0421,5
+P-PDG,Abrupt Increase of BSW,0.0000,2
+P-PDG,Flow Instability,-0.0004,4
+P-PDG,Hydrate in Production Line,0.0178,4
+P-PDG,Hydrate in Service Line,-0.0162,3
+P-PDG,Normal Operation,0.0107,5
+P-PDG,Quick Restriction in PCK,0.0000,2
+P-PDG,Rapid Productivity Loss,0.0000,2
+P-PDG,Scaling in PCK,0.0747,4
+P-PDG,Severe Slugging,0.0000,2
+P-PDG,Spurious Closure of DHSV,0.0753,5
+P-TPT,Abrupt Increase of BSW,0.0000,2
+P-TPT,Flow Instability,0.0585,4
+P-TPT,Hydrate in Production Line,0.0546,4
+P-TPT,Hydrate in Service Line,-0.0057,3
+P-TPT,Normal Operation,0.0333,5
+P-TPT,Quick Restriction in PCK,0.0000,2
+P-TPT,Rapid Productivity Loss,0.0000,2
+P-TPT,Scaling in PCK,0.0457,4
+P-TPT,Severe Slugging,0.0000,2
+P-TPT,Spurious Closure of DHSV,0.1797,5
+QGL,Abrupt Increase of BSW,0.0000,2
+QGL,Flow Instability,-0.0018,4
+QGL,Hydrate in Production Line,0.1299,4
+QGL,Hydrate in Service Line,-0.0360,3
+QGL,Normal Operation,0.0136,5
+QGL,Quick Restriction in PCK,0.0000,2
+QGL,Rapid Productivity Loss,0.0000,2
+QGL,Scaling in PCK,-0.0011,4
+QGL,Severe Slugging,0.0000,2
+QGL,Spurious Closure of DHSV,0.0270,5
+T-JUS-CKP,Abrupt Increase of BSW,0.0000,2
+T-JUS-CKP,Flow Instability,0.0040,4
+T-JUS-CKP,Hydrate in Production Line,0.0066,4
+T-JUS-CKP,Hydrate in Service Line,0.0045,3
+T-JUS-CKP,Normal Operation,0.0132,5
+T-JUS-CKP,Quick Restriction in PCK,0.0000,2
+T-JUS-CKP,Rapid Productivity Loss,0.0000,2
+T-JUS-CKP,Scaling in PCK,0.0431,4
+T-JUS-CKP,Severe Slugging,0.0000,2
+T-JUS-CKP,Spurious Closure of DHSV,-0.0145,5
+T-MON-CKP,Abrupt Increase of BSW,0.0000,2
+T-MON-CKP,Flow Instability,-0.0001,4
+T-MON-CKP,Hydrate in Production Line,0.4539,4
+T-MON-CKP,Hydrate in Service Line,0.0000,3
+T-MON-CKP,Normal Operation,0.0594,5
+T-MON-CKP,Quick Restriction in PCK,0.0000,2
+T-MON-CKP,Rapid Productivity Loss,0.0000,2
+T-MON-CKP,Scaling in PCK,-0.0000,4
+T-MON-CKP,Severe Slugging,0.0000,2
+T-MON-CKP,Spurious Closure of DHSV,0.0548,5
+T-PDG,Abrupt Increase of BSW,0.0000,2
+T-PDG,Flow Instability,0.0431,4
+T-PDG,Hydrate in Production Line,-0.0001,4
+T-PDG,Hydrate in Service Line,-0.0122,3
+T-PDG,Normal Operation,-0.0026,5
+T-PDG,Quick Restriction in PCK,0.0000,2
+T-PDG,Rapid Productivity Loss,-0.0182,2
+T-PDG,Scaling in PCK,0.0003,4
+T-PDG,Severe Slugging,0.0000,2
+T-PDG,Spurious Closure of DHSV,-0.0028,5
+T-TPT,Abrupt Increase of BSW,-0.0068,2
+T-TPT,Flow Instability,0.0176,4
+T-TPT,Hydrate in Production Line,0.0640,4
+T-TPT,Hydrate in Service Line,0.0006,3
+T-TPT,Normal Operation,0.0270,5
+T-TPT,Quick Restriction in PCK,0.0000,2
+T-TPT,Rapid Productivity Loss,0.0000,2
+T-TPT,Scaling in PCK,0.0024,4
+T-TPT,Severe Slugging,0.0000,2
+T-TPT,Spurious Closure of DHSV,0.3960,5
