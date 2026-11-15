@@ -125,3 +125,71 @@ def test_drift_vs_instance_start_and_rolling():
 def test_drift_missing_sensor_gives_nan():
     w = _windows(_instance(**{"P_TPT": 80e5}))
     assert w["DRIFT0-P-PDG__delta"].isna().all() and np.allclose(w["DRIFT0-P-TPT__delta"], 0)
+
+
+# ---------------------------------------------------------------- release v1.0 groups (E05-E08)
+def test_osc120_sees_a_90_min_cycle_that_osc60_cannot():
+    t = np.arange(6 * 3600, dtype=float)
+    x = 100e5 + 2e5 * np.sin(2 * np.pi * t / (90 * 60))  # 90-min slug cycle
+    w = _windows(_instance(n=len(t), **{"P_TPT": x})).set_index("window_idx")
+    last = w.index.max()
+    assert abs(w.loc[last, "OSC120-P-TPT__period_min"] - 90) < 10
+    assert w.loc[last, "OSC120-P-TPT__band_frac"] > 0.8
+    assert w.loc[last, "OSC-P-TPT__band_frac"] < w.loc[last, "OSC120-P-TPT__band_frac"]
+
+
+def test_oscn_ratio_rises_when_oscillation_starts_and_is_nan_early():
+    t = np.arange(6 * 3600, dtype=float)
+    x = np.full(len(t), 100e5)
+    on = 4 * 3600
+    x[on:] += 2e5 * np.sin(2 * np.pi * t[on:] / (10 * 60))  # slugging starts after 4 h of flat flow
+    w = _windows(_instance(n=len(t), **{"P_TPT": x})).set_index("window_idx")
+    assert w["OSCN-P-TPT__log_amp_ratio"].iloc[:3].isna().all()      # < 1 h of reference history
+    before = w[w["window_end"] < pd.Timestamp("2024-01-01") + pd.Timedelta(seconds=on)]
+    assert np.allclose(before["OSCN-P-TPT__log_amp_ratio"].dropna(), 0, atol=0.05)
+    assert w["OSCN-P-TPT__log_amp_ratio"].iloc[-1] > 2              # >100x the flat reference
+
+
+def test_phydrift_tracks_dp_change_not_level():
+    p = np.full(N, 200e5)
+    p[3 * 3600:] = 190e5  # downhole pressure drops 10 bar after 3 h -> ΔP_well drops 10 bar
+    w = _windows(_instance(**{"P_PDG": p, "P_TPT": np.full(N, 100e5)})).set_index("window_idx")
+    assert np.isclose(w["PHYDRIFT-DP-WELL__delta"].iloc[-1], -10e5)
+    early_ok = w["PHYDRIFT-DP-WELL__delta"].dropna()
+    assert np.isclose(early_ok.iloc[0], 0)
+
+
+def test_mask_reports_share_of_valid_samples():
+    x = np.full(N, 80e5)
+    x[:450] = np.nan  # first window: half missing
+    w = _windows(_instance(**{"P_TPT": x})).set_index("window_idx")
+    assert np.isclose(w.loc[0, "MASK-P-TPT__valid"], 0.5)
+    assert np.isclose(w.loc[5, "MASK-P-TPT__valid"], 1.0)
+    assert (w["MASK-P-PDG__valid"] == 0).all()
+
+
+def test_column_selection_helpers():
+    from wellsentinel.features import base_sensors, drop_by_pattern, drop_by_sensor
+    assert base_sensors("OSC-P-TPT__band_amp") == ["P-TPT"]
+    assert base_sensors("OSC120-P-MON-CKP__period_min") == ["P-MON-CKP"]
+    assert base_sensors("PHYDRIFT-DP-WELL__delta") == ["P-PDG", "P-TPT"]
+    assert base_sensors("MASK-QGL__valid") == ["QGL"]
+    cols = ["P-TPT__mean", "OSC-P-TPT__band_amp", "OSC120-P-TPT__band_amp", "PHY-DP-WELL__mean",
+            "PHY-DP-WELL__std", "PHYDRIFT-DP-WELL__delta", "ESTADO-M1__mean"]
+    assert drop_by_sensor(cols, ["OSC-", "ESTADO-"]) == ["P-TPT__mean", "OSC120-P-TPT__band_amp",
+                                                          "PHY-DP-WELL__mean", "PHY-DP-WELL__std",
+                                                          "PHYDRIFT-DP-WELL__delta"]
+    assert "PHYDRIFT-DP-WELL__delta" in drop_by_sensor(cols, ["PHY-"])
+    assert drop_by_pattern(cols, ["PHY-*__mean"]) == [c for c in cols if c != "PHY-DP-WELL__mean"]
+
+
+def test_sim_rescale_uses_training_real_windows_only():
+    from wellsentinel.cv import rescale_simulated
+    X = pd.DataFrame({"OSC-P-TPT__band_amp": [10.0, 10.0, 1.0, 1.0, 5.0], "P-TPT__std": [1.0] * 5})
+    meta = pd.DataFrame({"instance_type": ["real", "real", "simulated", "simulated", "simulated"],
+                         "target": [3, 3, 3, 3, 0]})
+    Xs, f = rescale_simulated(X, meta, sensors=["P-TPT"])
+    assert f["P-TPT"] == 10.0
+    assert Xs["OSC-P-TPT__band_amp"].tolist() == [10.0, 10.0, 10.0, 10.0, 5.0]  # sim normal untouched
+    _, f2 = rescale_simulated(X, meta.assign(instance_type=["simulated"] * 5), sensors=["P-TPT"])
+    assert f2["P-TPT"] == 1.0  # no real slugging in training -> no rescaling

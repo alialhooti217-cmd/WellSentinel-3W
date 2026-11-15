@@ -1,0 +1,482 @@
+instance_id,label,event,detected,delay_min,early_warning,pre_onset_alarm,starts_in_event,detected_strict,delay_min_strict,early_warning_strict,fold
+2/WELL-00011_20140515083000,2,Spurious Closure of DHSV,True,0.0,True,True,False,False,,False,0
+2/WELL-00011_20140530083203,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140606213810,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,0
+2/WELL-00011_20140720110102,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140726165720,2,Spurious Closure of DHSV,True,10.0,True,True,False,False,,False,0
+2/WELL-00011_20140823230118,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140916050300,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140921183228,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140928090056,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140929153332,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20140929210121,2,Spurious Closure of DHSV,True,0.0,True,True,False,False,,False,0
+2/WELL-00011_20141005160056,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,0
+2/WELL-00011_20141006150121,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,0
+5/WELL-00015_20170620122925,5,Rapid Productivity Loss,True,15.0,True,False,False,True,15.0,True,0
+5/WELL-00016_20180405005319,5,Rapid Productivity Loss,True,20.0,True,False,False,True,20.0,True,0
+5/WELL-00016_20180426131710,5,Rapid Productivity Loss,False,,False,False,True,False,,False,0
+5/WELL-00016_20180426135108,5,Rapid Productivity Loss,True,25.0,True,False,True,True,25.0,True,0
+5/WELL-00016_20180517212322,5,Rapid Productivity Loss,True,20.0,True,False,False,True,20.0,True,0
+8/WELL-00025_20200629194141,8,Hydrate in Production Line,True,5.0,True,False,False,True,5.0,True,0
+8/WELL-00029_20201020231724,8,Hydrate in Production Line,True,5.0,True,False,False,True,5.0,True,0
+9/WELL-00016_20150418132043,9,Hydrate in Service Line,True,5.0,True,False,True,True,5.0,True,0
+9/WELL-00040_20181013160242,9,Hydrate in Service Line,False,,False,False,False,False,,False,0
+2/WELL-00003_20141122190000,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,1
+2/WELL-00003_20170728130240,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,1
+2/WELL-00003_20180206171508,2,Spurious Closure of DHSV,True,0.0,True,True,False,False,,False,1
+3/WELL-00014_20170917140000,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170917190000,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170918010114,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170918060135,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170918110103,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170919200016,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170920000042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170920050228,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170920100053,3,Severe Slugging,True,205.0,False,False,True,True,205.0,False,1
+3/WELL-00014_20170920180207,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170920230053,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170921040404,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170921090155,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170921140042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170921190114,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170922000042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170922050124,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170922100042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170922150249,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170925000031,3,Severe Slugging,True,20.0,False,False,True,True,20.0,False,1
+3/WELL-00014_20170925050042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170925100124,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170925150218,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170925200042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170926010340,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170926060042,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170926110103,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20170926160228,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20171028070000,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20171028120000,3,Severe Slugging,False,,False,False,True,False,,False,1
+3/WELL-00014_20171028170038,3,Severe Slugging,False,,False,False,True,False,,False,1
+4/WELL-00004_20140804190012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140804210008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140804230059,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805010033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805030025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805050008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805070029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805090050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805110107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805130016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805150150,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805170137,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805190046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805210116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140805230050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806010107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806030012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806050141,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806070215,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806090103,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806110038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806130050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806150154,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806170008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20140806190021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117100021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117120029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117140055,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117160116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117180021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117200021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141117220046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118000042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118020016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118040012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118060038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118080038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118100025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118120050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118140107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118160016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118180124,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00004_20141118200016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,1
+4/WELL-00014_20170915080021,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915100033,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915120107,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915140059,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915160012,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915180050,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170915200116,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170916170016,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170916190112,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170916210059,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170916230042,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917010012,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917030228,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917050111,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917070112,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917090055,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170917110016,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170923150033,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170923170059,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170923190120,4,Flow Instability,False,,False,False,True,False,,False,1
+4/WELL-00014_20170924160050,4,Flow Instability,False,,False,False,True,False,,False,1
+5/WELL-00020_20140314144539,5,Rapid Productivity Loss,True,245.0,True,False,False,True,245.0,True,1
+5/WELL-00020_20140317130658,5,Rapid Productivity Loss,False,,False,False,False,False,,False,1
+5/WELL-00020_20140318005900,5,Rapid Productivity Loss,False,,False,False,False,False,,False,1
+5/WELL-00020_20140318135038,5,Rapid Productivity Loss,False,,False,False,False,False,,False,1
+5/WELL-00020_20140319021600,5,Rapid Productivity Loss,False,,False,False,False,False,,False,1
+5/WELL-00020_20140319110000,5,Rapid Productivity Loss,False,,False,False,False,False,,False,1
+6/WELL-00004_20171031171509,6,Quick Restriction in PCK,False,,False,False,False,False,,False,1
+6/WELL-00004_20171031181500,6,Quick Restriction in PCK,False,,False,False,False,False,,False,1
+6/WELL-00004_20171031184839,6,Quick Restriction in PCK,False,,False,False,False,False,,False,1
+7/WELL-00023_20180826212652,7,Scaling in PCK,False,,False,False,False,False,,False,1
+7/WELL-00023_20181014121654,7,Scaling in PCK,False,,False,False,False,False,,False,1
+7/WELL-00023_20181019115124,7,Scaling in PCK,True,3930.0,True,False,False,True,3930.0,True,1
+7/WELL-00023_20181030045054,7,Scaling in PCK,True,0.0,True,True,False,False,,False,1
+7/WELL-00024_20160704180000,7,Scaling in PCK,True,580.0,True,False,False,True,580.0,True,1
+7/WELL-00024_20160708024918,7,Scaling in PCK,True,1010.0,True,False,False,True,1010.0,True,1
+7/WELL-00024_20160712123044,7,Scaling in PCK,True,2625.0,True,False,False,True,2625.0,True,1
+7/WELL-00024_20160720230624,7,Scaling in PCK,True,75.0,True,False,False,True,75.0,True,1
+7/WELL-00024_20160722105543,7,Scaling in PCK,True,260.0,True,False,False,True,260.0,True,1
+7/WELL-00024_20160729172014,7,Scaling in PCK,True,675.0,True,False,False,True,675.0,True,1
+7/WELL-00024_20160802001614,7,Scaling in PCK,True,560.0,True,False,False,True,560.0,True,1
+7/WELL-00024_20160810123500,7,Scaling in PCK,False,,False,False,False,False,,False,1
+7/WELL-00024_20160825100303,7,Scaling in PCK,True,10.0,True,False,False,True,10.0,True,1
+7/WELL-00024_20160828150330,7,Scaling in PCK,True,180.0,True,False,False,True,180.0,True,1
+7/WELL-00024_20160830190958,7,Scaling in PCK,True,15.0,True,False,False,True,15.0,True,1
+7/WELL-00024_20160906211412,7,Scaling in PCK,True,340.0,True,False,False,True,340.0,True,1
+7/WELL-00024_20160909220000,7,Scaling in PCK,True,215.0,True,False,False,True,215.0,True,1
+7/WELL-00024_20160911063934,7,Scaling in PCK,True,300.0,True,False,False,True,300.0,True,1
+7/WELL-00024_20160920153331,7,Scaling in PCK,True,30.0,True,False,False,True,30.0,True,1
+7/WELL-00024_20160923141645,7,Scaling in PCK,True,450.0,True,False,False,True,450.0,True,1
+7/WELL-00024_20160926072123,7,Scaling in PCK,True,200.0,True,False,False,True,200.0,True,1
+7/WELL-00024_20161001112049,7,Scaling in PCK,True,40.0,True,False,False,True,40.0,True,1
+7/WELL-00024_20161026065657,7,Scaling in PCK,False,,False,False,False,False,,False,1
+8/WELL-00030_20141108012623,8,Hydrate in Production Line,True,5.0,True,False,False,True,5.0,True,1
+8/WELL-00031_20140403170404,8,Hydrate in Production Line,False,,False,False,False,False,,False,1
+9/WELL-00014_20160304155906,9,Hydrate in Service Line,False,,False,False,False,False,,False,1
+9/WELL-00014_20160306070000,9,Hydrate in Service Line,False,,False,False,False,False,,False,1
+9/WELL-00014_20170214190000,9,Hydrate in Service Line,False,,False,False,False,False,,False,1
+9/WELL-00041_20181013160201,9,Hydrate in Service Line,True,135.0,True,False,False,True,135.0,True,1
+2/WELL-00010_20171218180131,2,Spurious Closure of DHSV,True,0.0,True,True,False,False,,False,2
+4/WELL-00010_20180416070150,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416090133,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416110120,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416130038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416150107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416170029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416190008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416210141,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180416230055,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180417010107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180417030033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180417050046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180422170012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180422190158,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180422210038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180422230029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423010129,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423030021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423050353,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423070107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423090050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423110112,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423130025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423150129,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423170042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423190021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423210016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180423230033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424010059,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424030012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424050029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424070107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424090046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424110050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424130033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424150129,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424170033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424190133,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424210211,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180424230232,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425010050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425030224,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425050158,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425070141,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425090033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425110029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425130016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425150107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425170046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425190116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425210046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180425230124,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426010124,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426030033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426050029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426070025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426090042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426110107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426130141,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426150008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426170103,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426190107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426210116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180426230008,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427010029,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427030025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427050042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427070107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427090107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427110016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427130112,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427150025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427170042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427190340,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427210055,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180427230016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428010211,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428030137,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428050033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428070033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428090116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428110207,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+4/WELL-00010_20180428130249,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,2
+7/WELL-00021_20180611011218,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00021_20190403013307,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20180802233838,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20180912025800,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20180919003240,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20180925003447,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20181007080700,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20181020133850,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20181026005827,7,Scaling in PCK,False,,False,False,False,False,,False,2
+7/WELL-00022_20181101193049,7,Scaling in PCK,False,,False,False,False,False,,False,2
+9/WELL-00037_20181011071238,9,Hydrate in Service Line,True,0.0,True,True,False,False,,False,2
+9/WELL-00037_20181013022427,9,Hydrate in Service Line,True,5.0,True,False,False,True,5.0,True,2
+9/WELL-00042_20141217142745,9,Hydrate in Service Line,False,,False,False,False,False,,False,2
+9/WELL-00042_20141218004109,9,Hydrate in Service Line,False,,False,False,False,False,,False,2
+9/WELL-00042_20141218051903,9,Hydrate in Service Line,False,,False,False,False,False,,False,2
+9/WELL-00042_20141221190219,9,Hydrate in Service Line,False,,False,False,False,False,,False,2
+9/WELL-00042_20141222024535,9,Hydrate in Service Line,False,,False,False,False,False,,False,2
+1/WELL-00001_20140124083303,1,Abrupt Increase of BSW,False,,False,False,False,False,,False,3
+2/WELL-00013_20170329010229,2,Spurious Closure of DHSV,True,0.0,True,True,False,False,,False,3
+3/WELL-00001_20170320120025,3,Severe Slugging,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316110203,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316130000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316150005,4,Flow Instability,True,95.0,False,False,True,True,95.0,False,3
+4/WELL-00001_20170316170000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316190000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316210000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170316230000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317010000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317030000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317050000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317070000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317090000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317110000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317130005,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317150000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317170000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317190000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317210000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170317230020,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318010000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318030000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318050025,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318070000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318090000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318110000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170318130000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170319170033,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170320180146,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170421150000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170421170000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170421190000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170421210000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170421230000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170422010000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170626050000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00001_20170626070000,4,Flow Instability,False,,False,False,True,False,,False,3
+4/WELL-00005_20170616010033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624010016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624030025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624050038,4,Flow Instability,True,15.0,False,False,True,True,15.0,False,3
+4/WELL-00005_20170624070158,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624090042,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624150124,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624170016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624190107,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624210033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170624230038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625010059,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625030228,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625050103,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625083000,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625103000,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170625123000,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626040116,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626060033,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626080055,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626100038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626120016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626140141,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626160050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626180016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626200059,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170626220232,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627000154,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627020207,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627040046,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627060050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627080025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627100055,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627120016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627140050,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627160112,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627180112,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+4/WELL-00005_20170627200038,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,3
+7/WELL-00001_20170226130146,7,Scaling in PCK,False,,False,False,False,False,,False,3
+8/WELL-00026_20160601130000,8,Hydrate in Production Line,True,0.0,True,True,False,False,,False,3
+8/WELL-00026_20170207230000,8,Hydrate in Production Line,True,25.0,True,False,False,True,25.0,True,3
+8/WELL-00026_20170608230000,8,Hydrate in Production Line,True,0.0,True,True,False,False,,False,3
+8/WELL-00028_20210617053128,8,Hydrate in Production Line,True,10.0,True,False,False,True,10.0,True,3
+8/WELL-00032_20110830235321,8,Hydrate in Production Line,True,10.0,True,True,False,False,,False,3
+1/WELL-00002_20140126180030,1,Abrupt Increase of BSW,False,,False,False,False,False,,False,4
+1/WELL-00006_20170731170930,1,Abrupt Increase of BSW,True,655.0,False,False,False,True,655.0,False,4
+1/WELL-00006_20180617190257,1,Abrupt Increase of BSW,False,,False,False,False,False,,False,4
+2/WELL-00002_20131104004101,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,4
+2/WELL-00009_20170313150804,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,4
+2/WELL-00012_20170320011000,2,Spurious Closure of DHSV,True,10.0,True,False,False,True,10.0,True,4
+2/WELL-00012_20170320123144,2,Spurious Closure of DHSV,True,5.0,True,False,False,True,5.0,True,4
+4/WELL-00002_20131208220000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209000000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209020000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209040000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209060000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209080000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209100000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131209120000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131212080000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131212100000,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131214210010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131214230010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215010010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215030036,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215050030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215070015,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215090025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215110025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215130036,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215150122,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215170101,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215190132,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20131215210107,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140109000112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140109020025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140109040025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140109140010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140109160010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140115150010,4,Flow Instability,True,80.0,False,False,True,True,80.0,False,4
+4/WELL-00002_20140115170036,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140118230030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119010020,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119030025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119050010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119070138,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119090112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119110010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119130010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119150112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119170015,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119190132,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119210015,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140119230030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120010025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120030132,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120050203,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120070122,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120090010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120110234,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120130224,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120150112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120170010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120190122,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120210036,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140120230224,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121010056,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121030030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121050010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121070214,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121090056,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121110117,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121130132,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121150025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121170219,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121190234,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121210041,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140121230117,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122010051,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122030046,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122050010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122070127,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122090112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122110030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122130015,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122150127,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122170112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122190127,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122210153,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140122230051,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140123010219,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140123030132,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140123050030,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140123070010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124050010,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124070020,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124090054,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124110131,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124130041,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124150018,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124170136,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124190008,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124210029,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140124230055,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125010016,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125030033,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125050245,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125070141,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125090025,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125110016,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125130107,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125150112,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125170107,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125190016,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125210046,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140125230059,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126010016,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126030133,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126050141,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126070146,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126090141,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126110241,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00002_20140126130124,4,Flow Instability,False,,False,False,True,False,,False,4
+4/WELL-00007_20170517200012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170517220025,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518000012,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518020016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518040016,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518060124,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518080021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518100129,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518120103,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+4/WELL-00007_20170518140021,4,Flow Instability,True,5.0,False,False,True,True,5.0,False,4
+6/WELL-00002_20140212160333,6,Quick Restriction in PCK,False,,False,False,False,False,,False,4
+6/WELL-00002_20140301141700,6,Quick Restriction in PCK,False,,False,False,False,False,,False,4
+6/WELL-00002_20140325160304,6,Quick Restriction in PCK,False,,False,False,False,False,,False,4
+7/WELL-00006_20180618103000,7,Scaling in PCK,False,,False,False,False,False,,False,4
+7/WELL-00006_20180620152903,7,Scaling in PCK,False,,False,False,False,False,,False,4
+8/WELL-00019_20120601165020,8,Hydrate in Production Line,True,0.0,True,True,False,False,,False,4
+8/WELL-00019_20141117190526,8,Hydrate in Production Line,True,10.0,True,False,False,True,10.0,True,4
+8/WELL-00019_20150614025713,8,Hydrate in Production Line,True,0.0,True,True,False,False,,False,4
+8/WELL-00019_20210617032654,8,Hydrate in Production Line,True,5.0,True,False,False,True,5.0,True,4
+8/WELL-00027_20230918170106,8,Hydrate in Production Line,True,15.0,True,False,False,True,15.0,True,4

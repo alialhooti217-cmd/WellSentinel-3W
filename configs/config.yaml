@@ -51,6 +51,18 @@ model:
     l2_regularization: 0.1
     class_weight: balanced
     random_state: 42
+  # The feature set that ships (03 --recommended / 06 --recommended / app). Chosen by the adoption rule
+  # (strict detection better on >= 3 of 5 grouped folds AND pooled false alarms per well-day not higher).
+  # E04: base stats + oscillation (OSC-) + live drift (DRIFTR-) = 145 features.
+  recommended:
+    name: v1
+    features: features_physics.parquet
+    drop_sensors: [PHY-, PHYDRIFT-, DRIFT0-, OSC120-, OSCN-, MASK-]
+    drop_features: []
+    min_real_availability: null
+    include_simulated: true
+    include_drawn: true
+    sim_rescale: false
 
 alarm:
   threshold: 0.5         # P(abnormal) needed to raise an alarm

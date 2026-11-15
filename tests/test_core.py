@@ -65,3 +65,22 @@ def test_strict_detection_ignores_alarm_already_on_before_onset():
     assert pi.loc["c", "detected"] and not pi.loc["c", "detected_strict"]
     assert pi.loc["a", "detected"] and not pi.loc["a", "detected_strict"] and pi.loc["a", "pre_onset_alarm"]
     assert pi.loc["b", "detected_strict"] and pi.loc["b", "delay_min_strict"] == 5.0
+
+
+def test_explain_window_finds_the_driving_sensor():
+    from sklearn.ensemble import HistGradientBoostingClassifier
+
+    from wellsentinel.explain import explain_window, plain_name
+    rng = np.random.default_rng(0)
+    n = 600
+    X = pd.DataFrame({"P-TPT__mean": rng.normal(0, 1, n), "OSC-P-TPT__band_amp": rng.normal(0, 1, n),
+                      "T-TPT__mean": rng.normal(0, 1, n), "QGL__mean": rng.normal(0, 1, n)})
+    y = (X["T-TPT__mean"] > 1).astype(int) * 2  # class 2 when the tree is hot, else normal (0)
+    m = HistGradientBoostingClassifier(max_iter=50).fit(X, y)
+    ref = X[y == 0].median().to_dict()
+    row = pd.DataFrame([{"P-TPT__mean": 0.0, "OSC-P-TPT__band_amp": 0.0, "T-TPT__mean": 3.0, "QGL__mean": 0.0}])
+    ex = explain_window(m, row, ref, top=3)
+    assert ex.loc[0, "sensor"] == "T-TPT" and ex.loc[0, "contribution"] > 0.5
+    assert ex.loc[0, "name"] == "Xmas-tree temperature"
+    assert set(ex["sensor"]) <= {"T-TPT", "P-TPT", "QGL"}  # OSC-P-TPT is grouped under P-TPT
+    assert plain_name("PHY-DP-WELL") == "Downhole-to-tree pressure difference"

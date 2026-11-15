@@ -81,6 +81,12 @@ DEFAULT_PHYSICS = {
     "baseline_s": 3600,          # DRIFT0: vs. mean of the first 60 min of the instance (expanding before that)
     "rolling_lag_s": [10800, 3600],  # DRIFTR: vs. mean over [end - 3 h, end - 1 h] (deployable, no file start)
     "min_baseline_s": 600,       # fewer valid baseline samples than this -> NaN
+    # --- release-v1.0 experiment groups (E05-E08) ---
+    "osc120_context_s": 14400,         # OSC120: 4 h history ...
+    "osc120_min_context_s": 3600,
+    "osc120_band_period_min": [2, 120],  # ... for a 2-120 min band (real slugging sits at the 60-min edge)
+    "norm_step_s": 300,                # OSCN: reference grid for the trailing amplitude median
+    "norm_floor_pa": 500.0,            # OSCN: 5 mbar noise floor so a flat history does not divide by ~0
 }
 
 
@@ -165,6 +171,24 @@ class _PhysicsContext:
         z = np.zeros((1, D.shape[1]))
         self.cs = np.vstack([z, np.cumsum(np.where(valid, D, 0.0), axis=0)])
         self.cn = np.vstack([z, np.cumsum(valid, axis=0)])
+        vdp = np.isfinite(self.dp)
+        zd = np.zeros((1, self.dp.shape[1]))
+        self.dcs = np.vstack([zd, np.cumsum(np.where(vdp, self.dp, 0.0), axis=0)])
+        self.dcn = np.vstack([zd, np.cumsum(vdp, axis=0)])
+        zx = np.zeros((1, X.shape[1]))
+        self.xcn = np.vstack([zx, np.cumsum(np.isfinite(X), axis=0)])  # for MASK- availability
+        self._osc_cache: dict[int, dict[str, dict[str, float]]] = {}
+
+    def _osc(self, end: int) -> dict[str, dict[str, float]]:
+        """2-60 min oscillation features for all osc sensors at `end` (memoised: reused by OSCN)."""
+        if end not in self._osc_cache:
+            p = self.p
+            ctx0 = max(0, end - p["context_s"])
+            self._osc_cache[end] = {
+                s: oscillation_features(self.X[ctx0:end, i], p["resample_s"], p["band_period_min"],
+                                        p["min_context_s"])
+                for s, i in zip(p["osc_sensors"], self.osc_idx)}
+        return self._osc_cache[end]
 
     def window(self, end: int, size_s: int) -> dict[str, float]:
         p, out = self.p, {}
@@ -172,13 +196,43 @@ class _PhysicsContext:
         for j, name in enumerate(DP_PAIRS):
             for s in DP_STATS:
                 out[f"{name}__{s}"] = st[s][j]
-        ctx0 = max(0, end - p["context_s"])
-        for s, i in zip(p["osc_sensors"], self.osc_idx):
-            o = oscillation_features(self.X[ctx0:end, i], p["resample_s"], p["band_period_min"], p["min_context_s"])
-            for k, v in o.items():
+        osc = self._osc(end)
+        for s in p["osc_sensors"]:
+            for k, v in osc[s].items():
                 out[f"OSC-{s}__{k}"] = v
         lag_far, lag_near = p["rolling_lag_s"]
         mb = p["min_baseline_s"]
+
+        # OSC120: wider band (2-120 min) on a 4 h causal history
+        c120 = max(0, end - p["osc120_context_s"])
+        for s, i in zip(p["osc_sensors"], self.osc_idx):
+            o = oscillation_features(self.X[c120:end, i], p["resample_s"], p["osc120_band_period_min"],
+                                     p["osc120_min_context_s"])
+            for k, v in o.items():
+                out[f"OSC120-{s}__{k}"] = v
+
+        # OSCN: band amplitude now vs. the median band amplitude of the same instance over [t-3h, t-1h]
+        # (label-free, causal per-well normalisation; log10 ratio with a small noise floor)
+        ref_ends = [e for e in range(end - lag_far, end - lag_near + 1, p["norm_step_s"]) if e > 0]
+        fl = p["norm_floor_pa"]
+        for s in p["osc_sensors"]:
+            ref = np.array([self._osc(e)[s]["band_amp"] for e in ref_ends], float)
+            ref = ref[np.isfinite(ref)]
+            now_amp = osc[s]["band_amp"]
+            out[f"OSCN-{s}__log_amp_ratio"] = (float(np.log10((now_amp + fl) / (np.median(ref) + fl)))
+                                               if len(ref) >= 3 and np.isfinite(now_amp) else np.nan)
+
+        # PHYDRIFT: ΔP live drift (dynamics of ΔP without its absolute level)
+        for j, name in enumerate(DP_PAIRS):
+            now = _prefix_mean(self.dcs[:, j], self.dcn[:, j], end - size_s, end, 1)
+            base = _prefix_mean(self.dcs[:, j], self.dcn[:, j], end - lag_far, end - lag_near, mb)
+            out[f"PHYDRIFT-{name[4:]}__delta"] = now - base
+
+        # MASK: share of valid 1 Hz samples per sensor in this window (explicit availability)
+        a, b = max(0, end - size_s), end
+        frac = (self.xcn[b] - self.xcn[a]) / max(b - a, 1)
+        for i, v in enumerate(VARIABLES):
+            out[f"MASK-{v}__valid"] = float(frac[i])
         for j, s in enumerate(p["drift_sensors"]):
             cs, cn = self.cs[:, j], self.cn[:, j]
             now = _prefix_mean(cs, cn, end - size_s, end, 1)
@@ -276,3 +330,71 @@ def select_feature_columns(table: pd.DataFrame, drop_missing_above: float = 0.95
     feat_cols = [c for c in table.columns if c not in META_COLS]
     miss = table[feat_cols].isna().mean()
     return [c for c in feat_cols if miss[c] <= drop_missing_above]
+
+
+# --------------------------------------------------------------------------------------------------
+# Column selection shared by 03 / 06 / 07 / app  (same semantics everywhere)
+# --------------------------------------------------------------------------------------------------
+PSEUDO_PREFIXES = ("OSC120-", "OSCN-", "OSC-", "DRIFT0-", "DRIFTR-", "MASK-")
+
+
+def base_sensors(feature: str) -> list[str]:
+    """Raw 3W tags a feature is computed from, e.g. 'OSC-P-TPT__band_amp' -> ['P-TPT'],
+    'PHY-DP-WELL__std' / 'PHYDRIFT-DP-WELL__delta' -> ['P-PDG', 'P-TPT']."""
+    name = feature.split("__")[0]
+    for pre in ("PHYDRIFT-", "PHY-"):
+        if name.startswith(pre):
+            return list(DP_PAIRS["PHY-" + name[len(pre):]])
+    for pre in PSEUDO_PREFIXES:
+        if name.startswith(pre):
+            return [name[len(pre):]]
+    return [name]
+
+
+def drop_by_sensor(cols: list[str], drop: list[str] | None) -> list[str]:
+    """Drop features whose sensor name equals an entry, or starts with an entry ending in '-'."""
+    if not drop:
+        return cols
+    def gone(c):
+        s = c.split("__")[0]
+        return any(s == d or (d.endswith("-") and s.startswith(d)) for d in drop)
+    return [c for c in cols if not gone(c)]
+
+
+def drop_by_pattern(cols: list[str], patterns: list[str] | None) -> list[str]:
+    """Drop features matching any fnmatch pattern, e.g. 'PHY-*__mean'."""
+    from fnmatch import fnmatchcase
+    if not patterns:
+        return cols
+    return [c for c in cols if not any(fnmatchcase(c, p) for p in patterns)]
+
+
+def real_availability(table: pd.DataFrame) -> pd.Series:
+    """Share of REAL windows in which each raw sensor has data (from '<tag>__mean')."""
+    real = table[table["instance_type"] == "real"]
+    return pd.Series({v: real[f"{v}__mean"].notna().mean() for v in VARIABLES if f"{v}__mean" in real})
+
+
+def choose_columns(table: pd.DataFrame, cfg: dict, drop_sensors=None, drop_features=None,
+                   min_real_availability: float | None = None) -> list[str]:
+    """Missing-filter -> drop sensors/prefixes -> drop patterns -> optional sensor-availability filter."""
+    cols = select_feature_columns(table, cfg["features"]["drop_vars_missing_above"])
+    cols = drop_by_pattern(drop_by_sensor(cols, drop_sensors), drop_features)
+    if min_real_availability:
+        av = real_availability(table)
+        ok = set(av[av >= min_real_availability].index)
+        cols = [c for c in cols if all(b in ok for b in base_sensors(c))]
+    return cols
+
+
+def recommended_spec(cfg: dict) -> dict:
+    """model.recommended from config.yaml with defaults filled in."""
+    r = dict(cfg.get("model", {}).get("recommended") or {})
+    r.setdefault("features", "features.parquet")
+    r.setdefault("drop_sensors", [])
+    r.setdefault("drop_features", [])
+    r.setdefault("min_real_availability", None)
+    r.setdefault("include_simulated", cfg["split"]["include_simulated_in_train"])
+    r.setdefault("include_drawn", cfg["split"]["include_drawn_in_train"])
+    r.setdefault("sim_rescale", False)
+    return r

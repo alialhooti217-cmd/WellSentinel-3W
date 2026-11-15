@@ -61,11 +61,44 @@ def model_with_iter(cfg: dict, max_iter: int | None = None):
     return build_model(c)
 
 
-def fit_predict(table, feat_cols, train, test, cfg, max_iter=None):
-    """Fit on `train` rows, return (model, test frame with pred / p_abnormal / proba)."""
+SLUG_AMP_SENSORS = ["P-TPT", "P-MON-CKP", "P-PDG"]
+
+
+def rescale_simulated(Xtr: pd.DataFrame, meta: pd.DataFrame, event: int = 3,
+                      sensors=SLUG_AMP_SENSORS) -> tuple[pd.DataFrame, dict]:
+    """E09: rescale amplitude features of SIMULATED `event` windows so their median matches the REAL
+    windows of the same event in the TRAINING rows (factors never see the test fold).
+
+    Scaled columns per sensor: '<s>__std', 'OSC-<s>__band_amp', 'OSC120-<s>__band_amp'.
+    The factor comes from 'OSC-<s>__band_amp' (fallback '<s>__std'). Factor = 1 if either side is empty.
+    """
+    Xtr = Xtr.copy()
+    sim = (meta["instance_type"] == "simulated").to_numpy() & (meta["target"] == event).to_numpy()
+    real = (meta["instance_type"] == "real").to_numpy() & (meta["target"] == event).to_numpy()
+    factors = {}
+    for s in sensors:
+        ref = next((c for c in (f"OSC-{s}__band_amp", f"{s}__std") if c in Xtr), None)
+        if ref is None:
+            continue
+        r, m = np.nanmedian(Xtr.loc[real, ref]) if real.any() else np.nan,             np.nanmedian(Xtr.loc[sim, ref]) if sim.any() else np.nan
+        f = float(r / m) if np.isfinite(r) and np.isfinite(m) and m > 0 else 1.0
+        factors[s] = f
+        for c in (f"{s}__std", f"OSC-{s}__band_amp", f"OSC120-{s}__band_amp"):
+            if c in Xtr:
+                Xtr.loc[sim, c] = Xtr.loc[sim, c] * f
+    return Xtr, factors
+
+
+def fit_predict(table, feat_cols, train, test, cfg, max_iter=None, sim_rescale=False):
+    """Fit on `train` rows, return (model, test frame with pred / p_abnormal / proba, fit seconds).
+    sim_rescale=True applies rescale_simulated to the training rows only (factors stored in model.sim_rescale_)."""
     model = model_with_iter(cfg, max_iter)
     t0 = time.time()
-    model.fit(table.loc[train, feat_cols], table.loc[train, "target"])
+    Xtr = table.loc[train, feat_cols]
+    if sim_rescale:
+        Xtr, factors = rescale_simulated(Xtr, table.loc[train, ["instance_type", "target"]])
+        model.sim_rescale_ = factors
+    model.fit(Xtr, table.loc[train, "target"])
     fit_s = time.time() - t0
     te = table.loc[test].copy()
     proba = model.predict_proba(te[feat_cols])

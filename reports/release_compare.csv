@@ -1,0 +1,101 @@
+run,event,f1,detect_strict,n_instances
+v1,Normal Operation,0.7075,,0
+v1,Abrupt Increase of BSW,0.0000,0.0000,4
+v1,Spurious Closure of DHSV,0.5287,0.7727,22
+v1,Severe Slugging,0.0000,0.8750,32
+v1,Flow Instability,0.1710,0.5102,343
+v1,Rapid Productivity Loss,0.0000,0.4545,11
+v1,Quick Restriction in PCK,0.0000,0.0000,6
+v1,Scaling in PCK,0.1514,0.1389,36
+v1,Hydrate in Production Line,0.8856,0.7857,14
+v1,Hydrate in Service Line,0.0376,0.1538,13
+base,Normal Operation,0.6854,,0
+base,Abrupt Increase of BSW,0.0000,0.0000,4
+base,Spurious Closure of DHSV,0.4437,0.3636,22
+base,Severe Slugging,0.0000,0.3438,32
+base,Flow Instability,0.1830,0.4490,343
+base,Rapid Productivity Loss,0.0000,0.4545,11
+base,Quick Restriction in PCK,0.0000,0.0000,6
+base,Scaling in PCK,0.1565,0.1389,36
+base,Hydrate in Production Line,0.7837,0.6429,14
+base,Hydrate in Service Line,0.0936,0.2308,13
+e05,Normal Operation,0.7052,,0
+e05,Abrupt Increase of BSW,0.0000,0.0000,4
+e05,Spurious Closure of DHSV,0.4961,0.8182,22
+e05,Severe Slugging,0.0000,0.8750,32
+e05,Flow Instability,0.1805,0.5423,343
+e05,Rapid Productivity Loss,0.0000,0.0909,11
+e05,Quick Restriction in PCK,0.0000,0.0000,6
+e05,Scaling in PCK,0.1510,0.1111,36
+e05,Hydrate in Production Line,0.8922,0.7143,14
+e05,Hydrate in Service Line,0.0294,0.1538,13
+e06,Normal Operation,0.6952,,0
+e06,Abrupt Increase of BSW,0.0000,0.0000,4
+e06,Spurious Closure of DHSV,0.5316,0.8636,22
+e06,Severe Slugging,0.0000,0.7812,32
+e06,Flow Instability,0.1798,0.4577,343
+e06,Rapid Productivity Loss,0.0000,0.0909,11
+e06,Quick Restriction in PCK,0.0000,0.0000,6
+e06,Scaling in PCK,0.0994,0.4444,36
+e06,Hydrate in Production Line,0.8883,0.6429,14
+e06,Hydrate in Service Line,0.0106,0.1538,13
+e07,Normal Operation,0.7034,,0
+e07,Abrupt Increase of BSW,0.0000,0.0000,4
+e07,Spurious Closure of DHSV,0.4240,0.8636,22
+e07,Severe Slugging,0.0000,0.6250,32
+e07,Flow Instability,0.1796,0.4606,343
+e07,Rapid Productivity Loss,0.0000,0.0909,11
+e07,Quick Restriction in PCK,0.0000,0.0000,6
+e07,Scaling in PCK,0.1515,0.2222,36
+e07,Hydrate in Production Line,0.8732,0.7143,14
+e07,Hydrate in Service Line,0.0190,0.1538,13
+e08a,Normal Operation,0.7119,,0
+e08a,Abrupt Increase of BSW,0.0000,0.0000,4
+e08a,Spurious Closure of DHSV,0.5038,0.8182,22
+e08a,Severe Slugging,0.0000,0.7812,32
+e08a,Flow Instability,0.1777,0.4840,343
+e08a,Rapid Productivity Loss,0.0000,0.2727,11
+e08a,Quick Restriction in PCK,0.0000,0.0000,6
+e08a,Scaling in PCK,0.1502,0.1389,36
+e08a,Hydrate in Production Line,0.8808,0.7143,14
+e08a,Hydrate in Service Line,0.0434,0.1538,13
+e08b,Normal Operation,0.6516,,0
+e08b,Abrupt Increase of BSW,0.0000,0.2500,4
+e08b,Spurious Closure of DHSV,0.6228,0.7273,22
+e08b,Severe Slugging,0.0000,0.0625,32
+e08b,Flow Instability,0.1806,0.5131,343
+e08b,Rapid Productivity Loss,0.0000,0.4545,11
+e08b,Quick Restriction in PCK,0.0000,0.0000,6
+e08b,Scaling in PCK,0.0460,0.5000,36
+e08b,Hydrate in Production Line,0.5024,0.5714,14
+e08b,Hydrate in Service Line,0.0747,0.2308,13
+e08c,Normal Operation,0.7150,,0
+e08c,Abrupt Increase of BSW,0.0000,0.0000,4
+e08c,Spurious Closure of DHSV,0.4275,0.8636,22
+e08c,Severe Slugging,0.0000,0.9062,32
+e08c,Flow Instability,0.1660,0.5306,343
+e08c,Rapid Productivity Loss,0.0000,0.5455,11
+e08c,Quick Restriction in PCK,0.0000,0.0000,6
+e08c,Scaling in PCK,0.1474,0.2222,36
+e08c,Hydrate in Production Line,0.7660,0.7857,14
+e08c,Hydrate in Service Line,0.0324,0.3846,13
+e09a,Normal Operation,0.6568,,0
+e09a,Abrupt Increase of BSW,0.0000,0.2500,4
+e09a,Spurious Closure of DHSV,0.5497,0.7273,22
+e09a,Severe Slugging,0.0000,0.9688,32
+e09a,Flow Instability,0.1607,0.5714,343
+e09a,Rapid Productivity Loss,0.0000,0.3636,11
+e09a,Quick Restriction in PCK,0.0000,0.3333,6
+e09a,Scaling in PCK,0.0024,0.3056,36
+e09a,Hydrate in Production Line,0.9273,0.3571,14
+e09a,Hydrate in Service Line,0.0042,0.1538,13
+e09c,Normal Operation,0.7182,,0
+e09c,Abrupt Increase of BSW,0.0000,0.0000,4
+e09c,Spurious Closure of DHSV,0.4962,0.9091,22
+e09c,Severe Slugging,0.0000,0.9062,32
+e09c,Flow Instability,0.1765,0.5044,343
+e09c,Rapid Productivity Loss,0.0000,0.0909,11
+e09c,Quick Restriction in PCK,0.0000,0.0000,6
+e09c,Scaling in PCK,0.1535,0.1389,36
+e09c,Hydrate in Production Line,0.8829,0.5714,14
+e09c,Hydrate in Service Line,0.0222,0.1538,13

@@ -38,7 +38,7 @@ from wellsentinel.cv import cv_splits, fit_predict, fold_result
 from wellsentinel.data import EVENT_NAMES
 from wellsentinel.evaluate import event_metrics
 from wellsentinel.explain import sensor_permutation_importance
-from wellsentinel.features import select_feature_columns
+from wellsentinel.features import base_sensors, select_feature_columns
 from wellsentinel.models import load_bundle
 
 VARIANTS = {
@@ -60,11 +60,11 @@ def drop_cols(cols, drop):
     return [c for c in cols if not gone(c)]
 
 
-def importance(table, folds, cfg, n_repeats, max_rows):
+def importance(table, folds, cfg, n_repeats, max_rows, model_tag="", group_fn=None):
     P = cfg["paths"]
     parts = []
     for k, _, te in cv_splits(table, folds, "grouped", cfg["split"]["n_folds"], cfg["split"]["seed"]):
-        path = P["models_dir"] / "cv" / f"grouped_fold{k}.joblib"
+        path = P["models_dir"] / "cv" / f"grouped_fold{k}{'_' + model_tag if model_tag else ''}.joblib"
         if not path.exists():
             raise FileNotFoundError(f"{path} missing - run scripts/06_cross_validation.py first")
         b = load_bundle(path)
@@ -74,7 +74,8 @@ def importance(table, folds, cfg, n_repeats, max_rows):
                    for _, g in test.groupby("target")]
             test = test.loc[np.concatenate(idx)]
         t0 = time.time()
-        imp = sensor_permutation_importance(b["model"], test[b["feature_cols"]], test["target"], n_repeats)
+        imp = sensor_permutation_importance(b["model"], test[b["feature_cols"]], test["target"], n_repeats,
+                                            group_fn=group_fn)
         imp["fold"] = k
         parts.append(imp)
         print(f"  importance fold {k}: {len(test):,} unseen-well windows, {time.time() - t0:.0f}s", flush=True)
@@ -144,6 +145,9 @@ def main() -> None:
     ap.add_argument("--skip-importance", action="store_true")
     ap.add_argument("--skip-ablation", action="store_true")
     ap.add_argument("--out", default="ablation_operator", help="output file stem in reports/")
+    ap.add_argument("--model-tag", default="", help="importance on models/cv/grouped_fold{k}_<tag>.joblib")
+    ap.add_argument("--group-by", choices=["feature-prefix", "base-sensor"], default="feature-prefix",
+                    help="base-sensor merges OSC-/DRIFTR- features into their physical sensor")
     args = ap.parse_args()
 
     cfg = load_config()
@@ -157,7 +161,8 @@ def main() -> None:
 
     if not args.skip_importance:
         print("Part A - sensor permutation importance on unseen wells", flush=True)
-        imp = importance(table, folds, cfg, args.n_repeats, args.max_rows)
+        gfn = (lambda c: base_sensors(c)[0] if len(base_sensors(c)) == 1 else c.split("__")[0])             if args.group_by == "base-sensor" else None
+        imp = importance(table, folds, cfg, args.n_repeats, args.max_rows, args.model_tag, gfn)
         overall = (imp[imp.metric == "macro_f1"].groupby("sensor")["drop_mean"]
                    .agg(drop_mean="mean", drop_std="std").reset_index()
                    .sort_values("drop_mean", ascending=False))
@@ -166,9 +171,10 @@ def main() -> None:
         by_class = (bc.groupby(["sensor", "event"])["drop_mean"].agg(drop_mean="mean", n_folds="size")
                     .reset_index())
         overall["type"] = np.where(overall["sensor"].map(OPERATOR), "operator", "process")
-        overall.to_csv(P["reports_dir"] / "sensor_importance.csv", index=False, float_format="%.4f")
-        by_class.to_csv(P["reports_dir"] / "sensor_importance_by_class.csv", index=False, float_format="%.4f")
-        plot_importance(overall, by_class, P["figures_dir"] / "sensor_importance.png")
+        it = f"_{args.model_tag}" if args.model_tag else ""
+        overall.to_csv(P["reports_dir"] / f"sensor_importance{it}.csv", index=False, float_format="%.4f")
+        by_class.to_csv(P["reports_dir"] / f"sensor_importance_by_class{it}.csv", index=False, float_format="%.4f")
+        plot_importance(overall, by_class, P["figures_dir"] / f"sensor_importance{it}.png")
         print(overall.head(12).to_string(index=False))
         share = overall.loc[overall.type == "operator", "drop_mean"].clip(lower=0).sum() / \
             overall["drop_mean"].clip(lower=0).sum()
