@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and cite the 3W dataset (Vargas et al., 2019)."
+title: "WellSentinel-3W: honest early warning of undesirable events in offshore oil wells"
+type: software
+authors:
+  - family-names: "Al Hooti"
+    given-names: "Ali"
+version: "1.0.0"
+date-released: "2026-11-15"
+repository-code: "https://github.com/alialhooti217-cmd/WellSentinel-3W"
+abstract: >-
+  Early-warning system for undesirable events in offshore oil wells on the Petrobras 3W dataset v2.0.0,
+  evaluated with well-grouped cross-validation, strict event metrics and false alarms per well-day, with
+  explainable alarms and a control-room replay dashboard.
+keywords:
+  - oil and gas
+  - flow assurance
+  - time-series classification
+  - data leakage
+  - 3W dataset
+references:
+  - type: article
+    title: "A realistic and public dataset with rare undesirable real events in oil wells"
+    authors:
+      - family-names: "Vargas"
+        given-names: "Ricardo Emanuel Vaz"
+      - family-names: "Munaro"
+        given-names: "Celso José"
+      - family-names: "Ciarelli"
+        given-names: "Patrick Marques"
+      - family-names: "Medeiros"
+        given-names: "André Gonçalves"
+      - family-names: "do Amaral"
+        given-names: "Bruno Guberfain"
+      - family-names: "Barrionuevo"
+        given-names: "Daniel Centurion"
+      - family-names: "de Araújo"
+        given-names: "Jean Carlos Dias"
+      - family-names: "Ribeiro"
+        given-names: "Jorge Lins"
+      - family-names: "Magalhães"
+        given-names: "Lucas Pierezan"
+    journal: "Journal of Petroleum Science and Engineering"
+    volume: 181
+    start: 106223
+    year: 2019
+    doi: "10.1016/j.petrol.2019.106223"
+  - type: data
+    title: "3W Dataset v2.0.0"
+    authors:
+      - name: "Petrobras"
+    url: "https://github.com/petrobras/3W"
+    license: CC-BY-4.0
